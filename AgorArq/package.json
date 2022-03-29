@@ -1,0 +1,19 @@
+{
+  "name": "agorarq",
+  "version": "1.0.0",
+  "description": "Marketing Digital para divulgação da área de Arquitetura",
+  "scripts": {
+    "start": "node www"
+  },
+  "author": "Luiz Felipe Castro Coelho",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.3",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
