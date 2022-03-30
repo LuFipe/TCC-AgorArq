@@ -1,0 +1,69 @@
+/*ELEMENTS*/
+body{
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+header{
+	height: 5em;
+	background-color: blue;
+	display: block;
+}
+
+main{
+	min-height: 95.9%;
+	display: flex;
+}
+
+footer{
+	height: 7em;
+	background-color: black;
+}
+
+div{
+	margin: auto;
+}
+
+/*CLASSES*/
+
+.submenu_CLASS{
+	height: 30em;
+	margin: .7em;
+	padding: .5em;
+	border-radius: 1em;
+	border-width: .1em;
+	border-style: solid;
+}
+
+.latmenu_CLASS{
+	width: 21.5%;
+	height: auto;
+}
+
+.mainMenu_CLASS{
+	display: flex;
+}
+
+/*ID*/
+
+section#feed_ID{
+	background-color: rgba(245, 245, 245, 1);
+	width: 57%;
+	height: auto;
+	display: block;
+}
+
+div#submenu_ID{
+	background-color: lightblue;
+	height: 3em;
+}
+
+div#conteudo_ID{
+	background-color: lightgray;
+	height: auto;
+}
+
+section#navi_ID{
+	background-color: blue;
+}
