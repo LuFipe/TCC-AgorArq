@@ -23,6 +23,20 @@ div{
 	margin: auto;
 }
 
+h1{
+	font-size: 1.4em;
+	align-self: center;
+}
+
+h2{
+	font-size: 1.1em;
+}
+
+h3{
+	font-size: .9em;
+	margin-left:3em;
+}
+
 input{
 	border-radius: 1em;
 }
@@ -30,7 +44,7 @@ input{
 hr{
 	margin-top: 0em;
 	margin-bottom: 0em;
-	width: 90vw;
+	width: 90%;
 	border-radius: 1em;
 	height: .05em;
 }
@@ -63,6 +77,7 @@ section#feed_ID{
 	width: 57%;
 	height: auto;
 	display: block;
+	overflow-y: auto;
 }
 
 div#submenu_ID{
@@ -71,4 +86,13 @@ div#submenu_ID{
 
 div#conteudo_ID{
 	height: 90.7%;
+}
+
+section#navi_ID{
+	border-style:solid none none none;
+	border-width: .1em;
+	padding:0 2em 0 2em;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
 }

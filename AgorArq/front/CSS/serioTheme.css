@@ -37,7 +37,5 @@ div#conteudo_ID{
 
 section#navi_ID{
 	background: rgba(25, 83, 89, 1);
-	border-style:solid none none none;
-	border-width: .1em;
 	border-color: rgba(163,255,71,1);
 }
