@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname,"front")));
 
 //CRIAÇÃO DA APLICAÇÃO//
 app.get('/',(req,res)=>{
-	res.render(path.join(__dirname,"PUG/index"));
+	res.render(path.join(__dirname,"PUG/news"));
 });
 
 let server = app.listen(3000,()=>{

@@ -1,0 +1,30 @@
+Set de Cores:
+	1-Serio:			Red		Green	Blue	HUE(RGB)
+		Turquesa-Teal	59		196		211		186
+		Verde Paris		128		255		0		090º
+		Borgonha		143		0		24		350º
+	
+	2-Serio2:
+		Preto
+		Branco
+		Dourado
+	
+	3-Serio3:
+		Lilas
+		Verde Paris
+		Marrom
+	
+	4-Ensino:
+		Azul
+		Amarelo
+		Marrom
+	
+	5-Misterio:
+		Indigo
+		Coral
+		Cinza
+	
+	6-Jovem:
+		Violeta
+		Laranja
+		Preto

@@ -6,8 +6,7 @@ body{
 }
 
 header{
-	height: 5em;
-	background-color: blue;
+	height: 6em;
 	display: block;
 }
 
@@ -18,11 +17,22 @@ main{
 
 footer{
 	height: 7em;
-	background-color: black;
 }
 
 div{
 	margin: auto;
+}
+
+input{
+	border-radius: 1em;
+}
+
+hr{
+	margin-top: 0em;
+	margin-bottom: 0em;
+	width: 90vw;
+	border-radius: 1em;
+	height: .05em;
 }
 
 /*CLASSES*/
@@ -43,27 +53,22 @@ div{
 
 .mainMenu_CLASS{
 	display: flex;
+	height: 1em;
+	padding: .5em;
 }
 
 /*ID*/
 
 section#feed_ID{
-	background-color: rgba(245, 245, 245, 1);
 	width: 57%;
 	height: auto;
 	display: block;
 }
 
 div#submenu_ID{
-	background-color: lightblue;
 	height: 3em;
 }
 
 div#conteudo_ID{
-	background-color: lightgray;
-	height: auto;
-}
-
-section#navi_ID{
-	background-color: blue;
+	height: 90.7%;
 }

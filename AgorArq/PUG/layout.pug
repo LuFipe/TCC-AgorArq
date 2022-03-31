@@ -5,24 +5,31 @@ html(lang="pt-br")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet", href="/CSS/mainStyle.css")
+		link(rel="stylesheet", href="/CSS/serioTheme.css")
 		title AgorArq 
 	body
 		header
-			section.mainMenu_CLASS
-				div LOGO
-				div BUSCA
-			section.mainMenu_CLASS
+			section.mainMenu_CLASS(style="height: 2.5em")
+				div(style="margin-left:3vw; font-size:1.5em") AgorArq
+				div(style="margin-right:7vw")
+					input(type="text")
+					span BUSCA
+			hr
+			section.mainMenu_CLASS(style="padding-left: 15vw; padding-right:15vw")
 				div HOME
 				div NOTICIAS
-				div ESCRITORIO MODELO
+				div ANTIGAS
 				div CATÁLOGO
-				div NOTICIAS ANTIGAS
+				div ESCRITORIO
 				div SOBRE
 		main
 			section.latmenu_CLASS#navi_ID
+				block navimenu
 			section#feed_ID
 				div#submenu_ID
+					block submenu
 				div#conteudo_ID
+					block conteudo
 			section.latmenu_CLASS#inter_ID
 				div.submenu_CLASS(style="background-color: beige")
 		footer

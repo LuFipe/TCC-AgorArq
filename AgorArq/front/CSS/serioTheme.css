@@ -1,0 +1,43 @@
+/*ELEMENTS*/
+body{
+	color: white
+}
+header{
+	background-color: rgba(25, 83, 89, 1);
+}
+
+main{
+	border-color: rgba(163,255,71,1);
+}
+
+footer{
+	background-color: black;
+}
+
+hr{
+	background-color: rgba(163,255,71,1);
+	color: rgba(163,255,71,1);
+}
+
+/*CLASSES*/
+
+/*ID*/
+
+section#feed_ID{
+	color: black;
+}
+
+div#submenu_ID{
+	background-color: rgba(51,170,184);
+}
+
+div#conteudo_ID{
+	background-color: rgba(250,250,250,1);
+}
+
+section#navi_ID{
+	background: rgba(25, 83, 89, 1);
+	border-style:solid none none none;
+	border-width: .1em;
+	border-color: rgba(163,255,71,1);
+}
