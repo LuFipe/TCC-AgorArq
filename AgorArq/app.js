@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const cookieParse = require('cookie-parser');
+const rotaU = require("./Rotas/rotaUser");
 
 let app = express();
 
@@ -13,9 +14,7 @@ app.set('view engine','pug');
 app.use(express.static(path.join(__dirname,"front")));
 
 //CRIAÇÃO DA APLICAÇÃO//
-app.get('/',(req,res)=>{
-	res.render(path.join(__dirname,"PUG/news"));
-});
+app.use('/',rotaU);
 
 let server = app.listen(3000,()=>{
 	console.log("Listenin in port 3000")
