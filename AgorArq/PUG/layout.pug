@@ -6,7 +6,7 @@ html(lang="pt-br")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet", href="/CSS/mainStyle.css")
 		link(rel="stylesheet", href="/CSS/serioTheme.css")
-		link(rel="stylesheet", href="/CSS/news.css")
+		link(rel="stylesheet", href="/CSS/blog.css")
 		title AgorArq 
 	body
 		header
@@ -17,11 +17,11 @@ html(lang="pt-br")
 					span BUSCA
 			hr
 			section.mainMenu_CLASS(style="padding-left: 15vw; padding-right:15vw")
-				div NOTICIAS
-				div ANTIGAS
-				div CATÁLOGO
-				div ESCRITORIO
-				div SOBRE
+				a(href="/") BLOG
+				a(href="/projetos") PROJETOS
+				a(href="/escritorio") ESCRITORIO
+				a(href="/bd") BANCO DE DADOS
+				a(href="/sobre") SOBRE
 		main
 			section.latmenu_CLASS#navi_ID
 				block navimenu

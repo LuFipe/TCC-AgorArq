@@ -49,6 +49,12 @@ hr{
 	height: .05em;
 }
 
+a{
+	color: white;
+	margin: auto;
+	text-decoration: none;
+}
+
 /*CLASSES*/
 
 .submenu_CLASS{
