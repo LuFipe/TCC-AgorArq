@@ -13,6 +13,18 @@
 	grid-template-columns: 20% 80%;
 }
 
+.contCel_CLASS{
+	width: 100%;
+	grid-column: 1 / 2;
+}
+
+.miniCel_CLASS{
+	width: 80%;
+	height: 80%;
+	padding: 1em;
+	margin: 1em auto;
+}
+
 /*ID*/
 section#manchete_ID{
 	height: 50%;

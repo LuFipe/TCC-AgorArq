@@ -12,20 +12,16 @@ block navimenu
 
 
 block conteudo
-	section
-		div#projSubmenu_ID
-			a(href="/2017.1") 2017.1
-			a(href="/2017.2") 2017.2
-			a(href="/2018.1") 2018.1
-			a(href="/2018.2") 2018.2
-			a(href="/2019.1") 2019.1
-			a(href="/2019.2") 2019.2
-			a(href="/2020.1") 2020.1
-			a(href="/2020.2") 2020.2
-			a(href="/2021.1") 2021.1
-			a(href="/2021.2") 2021.2
-	hr
-	section
-		div
-			div
-			p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores exercitationem repellat est veritatis consectetur corporis aut cumque molestiae ipsum quia illo repudiandae quisquam, perspiciatis consequuntur eligendi distinctio dignissimos hic vel!
+	section(style="display: flex; flex-wrap: wrap; width:100%")
+		div#submenu_ID
+			button(href="/2017.1") 2017.1
+			button(href="/2017.2") 2017.2
+			button(href="/2018.1") 2018.1
+			button(href="/2018.2") 2018.2
+			button(href="/2019.1") 2019.1
+			button(href="/2019.2") 2019.2
+			button(href="/2020.1") 2020.1
+			button(href="/2020.2") 2020.2
+			button(href="/2021.1") 2021.1
+			button(href="/2021.2") 2021.2
+	block projeto

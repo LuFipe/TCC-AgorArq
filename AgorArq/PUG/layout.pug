@@ -6,7 +6,9 @@ html(lang="pt-br")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet", href="/CSS/mainStyle.css")
 		link(rel="stylesheet", href="/CSS/serioTheme.css")
-		link(rel="stylesheet", href="/CSS/blog.css")
+		link(rel="stylesheet", href="/CSS/conteudo.css")
+		link(rel="stylesheet", href="/CSS/escritorio.css")
+		link(rel="stylesheet", href="/CSS/projetos.css")
 		title AgorArq 
 	body
 		header
@@ -17,9 +19,11 @@ html(lang="pt-br")
 					span BUSCA
 			hr
 			section.mainMenu_CLASS(style="padding-left: 15vw; padding-right:15vw")
-				a(href="/") BLOG
+				a(href="/") CONTEUDO
 				a(href="/projetos") PROJETOS
 				a(href="/escritorio") ESCRITORIO
+				a(href="/estudantes") ESTUDANTES
+				a(href="/tcc") TCC
 				a(href="/bd") BANCO DE DADOS
 				a(href="/sobre") SOBRE
 		main
@@ -29,5 +33,6 @@ html(lang="pt-br")
 				div#conteudo_ID
 					block conteudo
 			section.latmenu_CLASS#inter_ID
-				div.submenu_CLASS(style="background-color: beige")
+				div.submenu_CLASS(style="background-color: beige; color: black").
+					FORUM
 		footer

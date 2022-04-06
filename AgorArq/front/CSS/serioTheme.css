@@ -1,3 +1,12 @@
+/*CORES
+rgba(25,83,89,1)		Azul Esmeralda Escuro
+rgba(51,170,184,1)		Azul Esmeralda Palido
+rgba(163,255,71,1)		Verde Paris Forte
+rgba(118,184,51,1)		Verde Paris Medio
+
+*/
+
+
 /*ELEMENTS*/
 body{
 	color: white
@@ -19,6 +28,10 @@ hr{
 	color: rgba(163,255,71,1);
 }
 
+button{
+	background-color: rgba(118,184,51,1);
+}
+
 /*CLASSES*/
 
 /*ID*/
@@ -28,7 +41,7 @@ section#feed_ID{
 }
 
 div#submenu_ID{
-	background-color: rgba(51,170,184);
+	background-color: rgba(51,170,184,1);
 }
 
 div#conteudo_ID{
