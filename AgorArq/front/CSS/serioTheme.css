@@ -37,6 +37,10 @@ button:focus{
 
 /*CLASSES*/
 
+.mainButton_CLASS{
+	color:white
+}
+
 /*ID*/
 
 section#feed_ID{

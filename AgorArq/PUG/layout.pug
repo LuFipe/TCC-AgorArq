@@ -1,7 +1,7 @@
 doctype html
 html(lang="pt-br")
 	head
-		meta(charset="UTF-8")
+		meta(charset="ISO-8859-1")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet", href="/CSS/mainStyle.css")
@@ -9,6 +9,7 @@ html(lang="pt-br")
 		link(rel="stylesheet", href="/CSS/conteudo.css")
 		link(rel="stylesheet", href="/CSS/escritorio.css")
 		link(rel="stylesheet", href="/CSS/projetos.css")
+		link(rel="stylesheet", href="/CSS/apresentacao.css")
 		title AgorArq 
 	body
 		header
@@ -19,13 +20,13 @@ html(lang="pt-br")
 					span BUSCA
 			hr
 			section.mainMenu_CLASS(style="padding-left: 15vw; padding-right:15vw")
-				a(href="/") CONTEUDO
-				a(href="/projetos") PROJETOS
-				a(href="/escritorio") ESCRITORIO
-				a(href="/estudantes") ESTUDANTES
-				a(href="/tcc") TCC
+				a.mainButton_CLASS(href="/") CONTEUDO
+				a.mainButton_CLASS(href="/projetos") PROJETOS
+				a.mainButton_CLASS(href="/escritorio") ESCRITORIO
+				a.mainButton_CLASS(href="/estudantes") ESTUDANTES
+				a.mainButton_CLASS(href="/tcc") TCC
 				//a(href="/bd") BANCO DE DADOS
-				a(href="/sobre") SOBRE
+				a.mainButton_CLASS(href="/sobre") SOBRE
 		main
 			section.latmenu_CLASS#navi_ID
 				block navimenu

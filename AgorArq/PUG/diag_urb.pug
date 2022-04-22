@@ -1,12 +1,19 @@
-extend layout
+extend layout 
 
 block navimenu
-	h1 ESTUDANTES
+	h1 DIAGNOSTICO URBANISMO
 	hr
 
 block conteudo
-	section(style="display: flex; flex-wrap:wrap; padding:1em")
-		div.infoCel_CLASS
+	section
+		h1 APRESENTAÇÃO
+		hr
+		iframe(src="HTML/PUII_DIAGNOSTICO.html", frameborder="0", style="height:100vh") 
+	section 
+		h1 AUTORES
+		hr
+		section(style="display: flex; flex-wrap:wrap; padding:1em")
+			div.infoCel_CLASS
 				img(src="autores/luiz_felipe.jpg", alt="SEM FOTO DE PERFIL").imgCel_CLASS
 				h3.titleCel_CLASS LUIZ FELIPE CASTRO COELHO
 				div
