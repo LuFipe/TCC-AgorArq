@@ -16,6 +16,46 @@
 .contCel_CLASS{
 	width: 100%;
 	grid-column: 1 / 2;
+	box-shadow: rgba(118,184,51,1) .1em .1em .5em;
+	border-radius: .2em;
+}
+
+.manchete_CLASS{
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 100%;
+}
+
+.manchButton_CLASS{
+	height: 80%;
+	width: 80%;
+	margin:1em;
+	grid-row: 1 / 2;
+	grid-column: 1 / 2;
+	grid-column: 1 / 2;
+	background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0, 0, 0,1) 90%);
+	z-index: 1;
+	display: grid;
+	grid-template-rows: auto 1em 4em;
+	text-align: center;
+	overflow: hidden;
+}
+
+.manchTitulo_CLASS{
+	color: white;
+	grid-row: 2 / 3;
+	margin: 0;
+}
+
+.manchBio_CLASS{
+	color: white;
+	grid-row: 3 / 4;
+	margin: 1em;
+}
+
+.manchImg_CLASS{
+	grid-row: 1 / 2;
+	grid-column: 1 / 2;
 }
 
 .miniCel_CLASS{
@@ -23,6 +63,38 @@
 	height: 80%;
 	padding: 1em;
 	margin: 1em auto;
+	display: grid;
+	grid-template-rows: 25% 25%;
+	grid-template-columns: 100%;
+}
+
+.imgHandler_CLASS{
+	display: flex;
+	max-width: 100%;
+	max-height: 100%;
+	grid-row: 1 / 3;
+	grid-column: 1 / 2;
+	align-items: center;
+	align-content: center;
+	overflow: hidden;
+}
+
+.tituloProj_CLASS{
+	grid-row: 1 / 2;
+	grid-column: 2 / 3;
+}
+
+.bioProj_CLASS{
+	grid-row: 2 / 2;
+	grid-column: 2 / 3;
+}
+
+.projButton_CLASS{
+	width: 100%;
+	height: 100%;
+	grid-row: 1 / 3;
+	grid-column: 1 / 3;
+	z-index: 1;
 }
 
 /*ID*/

@@ -6,8 +6,12 @@ rota.get('/',(req,res,next)=>{
 	res.render("conteudo");
 });
 
+// rota.get('/projetos',(req,res,next)=>{
+// 	res.render("PA")
+// })
+
 rota.get('/projetos',(req,res,next)=>{
-	res.render("PA")
+	res.render("projetos")
 })
 
 rota.get('/escritorio',(req,res,next)=>{
@@ -30,48 +34,56 @@ rota.get('/tcc',(req,res)=>{
 	res.render("tcc")
 })
 
-rota.get('/paisagismo',(req,res)=>{
-	res.render("paisagismo")
-})
-
 rota.get('/cultural',(req,res)=>{
-	res.render("cultural")
+	res.render("00002")
 })
 
 rota.get('/edificil',(req,res)=>{
-	res.render("edificil")
+	res.render("00003")
 })
 
 rota.get('/hospital',(req,res)=>{
-	res.render("hospital")
+	res.render("00004")
 })
 
 rota.get('/loteamento',(req,res)=>{
-	res.render("loteamento")
+	res.render("00005")
 })
 
-rota.get('/catalogo',(req,res)=>{
-	res.render("catalogo")
+rota.get('/paisagismo',(req,res)=>{
+	res.render("00006")
+})
+
+rota.get('/interiores',(req,res)=>{
+	res.render("00007")
 })
 
 rota.get('/washington',(req,res)=>{
-	res.render("washington")
+	res.render("00008")
 })
 
-rota.get('/permacultura',(req,res)=>{
-	res.render("permacultura")
+rota.get('/catalogo',(req,res)=>{
+	res.render("00009")
 })
 
 rota.get('/estudo_paisagismo',(req,res)=>{
-	res.render("estudo_paisagismo")
+	res.render("00010")
+})
+
+rota.get('/permacultura',(req,res)=>{
+	res.render("00011")
 })
 
 rota.get('/diag_praca',(req,res)=>{
-	res.render("diag_praca")
+	res.render("00012")
 })
 
 rota.get('/diag_urb',(req,res)=>{
-	res.render("diag_urb")
+	res.render("00013")
+})
+
+rota.get('/tcc-luiz',(req,res)=>{
+	res.render("00014")
 })
 
 module.exports = rota;

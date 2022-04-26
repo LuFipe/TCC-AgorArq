@@ -1,0 +1,52 @@
+extend layout 
+
+block navimenu
+	h1 CENTRO CULTURAL
+	hr
+
+block conteudo
+	section
+		h1 APRESENTAÇÃO
+		hr
+		iframe(src="projetos/00002/projeto.pdf", frameborder="0")
+		div(style="display: flex; flex-wrap:wrap")
+			p DOWNLOAD:
+			a(href="projetos/00002/projeto.pdf" style="margin:auto") PROJETO
+	section 
+		h1 DESCRIÇÃO
+		hr
+		div#descApres_ID
+			img.imgApres_CLASS(src="projetos/00002/perspectiva_01.png", alt="SEM IMAGEM")
+			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas debitis ducimus fuga non, iste autem ipsa praesentium? Doloribus, similique mollitia sunt consequatur, accusamus eligendi totam numquam accusantium, minima in odit.
+			div(style="grid-column: 1 / 3; display: flex; flex-wrap:wrap;")
+				img.imgApres_CLASS(src="projetos/00002/perspectiva_01.png", alt="SEM IMAGEM")
+				img.imgApres_CLASS(src="projetos/00002/perspectiva_02.png", alt="SEM IMAGEM")
+				img.imgApres_CLASS(src="projetos/00002/perspectiva_03.png", alt="SEM IMAGEM")
+	section 
+		h1 AUTORES
+		hr
+		section(style="display: flex; flex-wrap:wrap; padding:1em")
+			div.infoCel_CLASS
+				img(src="autores/luiz_felipe.jpg", alt="SEM FOTO DE PERFIL").imgPerf_CLASS
+				h3.titleCel_CLASS LUIZ FELIPE CASTRO COELHO
+				div
+					p UNIJUAZEIRO
+					p 10º
+					div SOFTWARES:
+						ul
+							li AUTOCAD
+							li 3DSMAX
+							li REVIT
+							li PHOTOSHOP
+							li ILLUSTRATOR
+			div.infoCel_CLASS
+				img(src="", alt="SEM FOTO DE PERFIL").imgPerf_CLASS
+				h3.titleCel_CLASS LEON
+				div
+					p UNIJUAZEIRO
+					p FORMADO
+					div SOFTWARES:
+						ul
+							li AUTOCAD
+							li LUMION
+							li SKETCHUP

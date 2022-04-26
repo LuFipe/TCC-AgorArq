@@ -1,0 +1,47 @@
+extend layout 
+
+block navimenu
+	h1 CATALOGO DE VEGETAÇÃO
+	hr
+
+block conteudo
+	section
+		h1 APRESENTAÇÃO
+		hr
+		iframe(src="trabalhos/00009/apresentacao.pdf", frameborder="0")
+		div(style="display: flex; flex-wrap:wrap")
+			p DOWNLOAD:
+			a(href="trabalhos/00009/apresentacao.pdf" style="margin:auto") APRESENTAÇÃO
+	section 
+		h1 DESCRIÇÃO
+		hr
+		div
+			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas debitis ducimus fuga non, iste autem ipsa praesentium? Doloribus, similique mollitia sunt consequatur, accusamus eligendi totam numquam accusantium, minima in odit.
+	section 
+		h1 AUTORES
+		hr
+		section(style="display: flex; flex-wrap:wrap; padding:1em")
+			div.infoCel_CLASS
+				img(src="autores/luiz_felipe.jpg", alt="SEM FOTO DE PERFIL").imgPerf_CLASS
+				h3.titleCel_CLASS LUIZ FELIPE CASTRO COELHO
+				div
+					p UNIJUAZEIRO
+					p 10º
+					div SOFTWARES:
+						ul
+							li AUTOCAD
+							li 3DSMAX
+							li REVIT
+							li PHOTOSHOP
+							li ILLUSTRATOR
+			div.infoCel_CLASS
+				img(src="autores/Eliara.jpeg", alt="SEM FOTO DE PERFIL").imgPerf_CLASS
+				h3.titleCel_CLASS ELIARA KELLY DE ALENCAR DANTAS
+				div
+					p UNIJUAZEIRO
+					p 9º
+					div SOFTWARES:
+						ul
+							li AUTOCAD
+							li SKETCHUP
+							li LUMION
