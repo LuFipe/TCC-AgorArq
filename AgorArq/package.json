@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Marketing Digital para divulgação da área de Arquitetura",
   "scripts": {
-    "start": "node www"
+    "start": "node app.js",
+    "devstart": "nodemon app.js",
+    "serverstart": "DEBUG=agorarq:* npm run devstart"
   },
   "author": "Luiz Felipe Castro Coelho",
   "license": "ISC",
@@ -11,9 +13,12 @@
     "body-parser": "^1.19.2",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "sequelize": "^6.28.0",
+    "sqlite3": "^5.1.4"
   },
   "devDependencies": {
+    "eslint": "^8.31.0",
     "nodemon": "^2.0.15"
   }
 }

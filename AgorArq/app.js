@@ -14,6 +14,10 @@ app.set('view engine','pug');
 //SETTANDO OS ARQUIVOS ESTATICOS COM ROTA MIDIA//
 app.use(express.static(path.join(__dirname,"front")));
 
+//MIDDLEWARES PARA POPULAR O req.body// (passar arquivos do cliente para servido)
+app.use(express.json());
+app.use(express.urlencoded({extended: false}))
+
 //CRIAÇÃO DA APLICAÇÃO//
 app.use('/',rotaU);
 app.use('/adm',rotaA);
