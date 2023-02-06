@@ -1,0 +1,44 @@
+Pergunta Norteadora:
+	Quais dores dos arquitetos pode-se explorar para atrair mais parceiros?
+
+Hipoteses:
+	I	-Arquitetos precisão de alguem que acompanhe a obra! //Nem clientes, nem arquitetos sabem como proceder perante o gerenciamento de obra //Arquitetos inciantes não possuem boas práticas quanto a acompanhamento de obra1
+	II	-Arquitetos estão descontentes com a finalização da obra!
+	III	-Arquitetos, principalmente os que estão entrando no mercado, não possuem portfolio real, o que torna-se uma barreira para entrada no mercado!
+	IV	-Não há alguém que escute e resolva as dores do despreparo para a profissão!(Depoimentos)
+
+Objetivo Geral:
+	-Verificar a existencias de todas essas dores e analisar o potencial de marketabilidade
+
+Objetivo Específico:
+	-Abordar arquitetos quanto a seu contentamento da finalização da obra, verificar suas experiencias, perguntar sobre soluções
+	-Verificar como é o acompanhamento da obra pelo arquiteto, sua experiencias para verificar a capacidade de acompanhamento do profissional e nível.
+	-Perguntar quantas contruções realizadas o profissional possui, verificar relação de projetos vendidos por projetos executados (finalizados). Verificar a perceção que faz uma construção real contra um render.
+	-Saber se conhecem algum profissional que se disponibilize para resolver esses problemas. Se o CAU é eficiente.
+
+Questionario:
+1.Geral
+	01-Nome
+	02-Nicho de atuação (se houver)
+	03-Tempo trabalhando na área
+2.Hipoteses I
+	04-Possui obras de interiores, arquietônicas, desenho industrial(moveis), realizadas? Saberia estimar quantas?
+	05-Costuma acompanhar as obras? Como são feitos os acompanhamentos? //Como é sua atuação em campo?
+	06-Quais são as principais dificuldes no acompanhamento da obra?
+	07-Qual é seu contato com os outros profissionais envolvidos durante a execução?
+  Hipoteses II
+	08-Ao final da obra, o projeto foi seguido a risca?
+		08.1-Quais as principais diferenças e problemas que não concretizaram o projeto conforme o desenho?
+		08.2-Como que isso chega a ti?(Não ter a execução fiel ao projeto)
+	09-Qual seria a solução para uma maior fidelidade do projeto?
+  Hipoteses III
+	10-Quem sao seus clientes?
+	*11-Quais estratégias utuliza para alcançar o seu cliente? (Desnecessário)
+	12-Possui portfolio, para apresentar ao cliente?
+	13-O portfolio consiste mais de renderes, videos, fotos?
+	14-Por sua percepção, o que mais atrai o cliente, imagens ou renderes?
+	15-Ter videos dentro da obra e fotos da construção, fazem diferença na sua divulgação? Faria diferença de quando começou a trabalhar?
+  Hipoteses IV
+	16-Em sua experiencia, como é a relaçao de todos os profissinais envolvidos no projeto? Engenheiros, Arquitetos, Construturas, Empreiteiras, há alguem que gerencie o contato entre os profissinais? Ou cada um faz seu trabalho aparte, ou os profissionais que precisam se arrumar?
+	17-Possui algum mestre, pedreiro ou construtora com que costuma construir e que gosta do trabalho?
+	18-Possue alguem a quem possa recorrer para solucionar seus problemas?
