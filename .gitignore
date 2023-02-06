@@ -1,8 +1,9 @@
 AgorArq/front/artigos/*
 AgorArq/front/images/*
 AgorArq/front/HTML/*
-AgorArq/DataBase/*
+AgorArq/DataBase/database.sqlite
 AgorArq/front/projetos/*
 AgorArq/front/trabalhos/*
 AgorArq/front/autores/*
 AgorArq/front/tcc/*
+AgorArq/Pesquisa_Marketing.txt
