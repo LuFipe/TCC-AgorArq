@@ -45,6 +45,27 @@ module.exports.atualizarProj = async(primary, met,ref)=>{
 	}
 }
 
+module.exports.atualizarProj_Memb = async (primary, ident_memb, ident_proj)=>{
+	try{
+		console.log("entrou no programa")
+		//SINCRONIZAÇÃO DO BANCO DE DADOS
+		const sinc = await db.sync();
+		console.log(sinc);
+		console.log("sincronizado")
+		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
+		const Membros_Proj = await tabelas.proj_memb.findByPk(primary);
+		Membros_Proj.id_memb = ident_memb;
+		Membros_Proj.id_proj = ident_proj;
+		console.log("atualizado")
+		//SALVANDO OS NOVOS DADOS
+		const salvar = await Membros_Proj.save();
+
+		console.log("Salvo os dados do id: "+primary)
+	} catch(error){
+		console.log("Houve um erro: "+error)
+	}
+}
+
 module.exports.atualizarArt = async (primary, subj, subt)=>{
 	try{
 		console.log("entrou no programa")
@@ -59,6 +80,29 @@ module.exports.atualizarArt = async (primary, subj, subt)=>{
 		console.log("atualizado")
 		//SALVANDO OS NOVOS DADOS
 		const salvar = await Artigo.save();
+
+		console.log("Salvo os dados do id: "+primary)
+	} catch(error){
+		console.log("Houve um erro: "+error)
+	}
+}
+
+module.exports.atualizarLinks = async (primary, yt, skf, pz, arq)=>{
+	try{
+		console.log("entrou no programa")
+		//SINCRONIZAÇÃO DO BANCO DE DADOS
+		const sinc = await db.sync();
+		console.log(sinc);
+		console.log("sincronizado")
+		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
+		const Link = await tabelas.links.findByPk(primary);
+		Link.youtube = yt;
+		Link.sketchfab = skf;
+		Link.prezi = pz;
+		Link.arquivo = arq;
+		console.log("atualizado")
+		//SALVANDO OS NOVOS DADOS
+		const salvar = await Link.save();
 
 		console.log("Salvo os dados do id: "+primary)
 	} catch(error){
@@ -108,29 +152,6 @@ module.exports.atualizarImg = async (primary, nm)=>{
 	}
 }
 
-module.exports.atualizarLinks = async (primary, yt, skf, pz, arq)=>{
-	try{
-		console.log("entrou no programa")
-		//SINCRONIZAÇÃO DO BANCO DE DADOS
-		const sinc = await db.sync();
-		console.log(sinc);
-		console.log("sincronizado")
-		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
-		const Link = await tabelas.links.findByPk(primary);
-		Link.youtube = yt;
-		Link.sketchfab = skf;
-		Link.prezi = pz;
-		Link.arquivo = arq;
-		console.log("atualizado")
-		//SALVANDO OS NOVOS DADOS
-		const salvar = await Link.save();
-
-		console.log("Salvo os dados do id: "+primary)
-	} catch(error){
-		console.log("Houve um erro: "+error)
-	}
-}
-
 module.exports.atualizarServ = async (primary, sv, desc, tmb)=>{
 	try{
 		console.log("entrou no programa")
@@ -153,7 +174,7 @@ module.exports.atualizarServ = async (primary, sv, desc, tmb)=>{
 	}
 }
 
-module.exports.atualizarEsc = async (primary, sb, tel, wp, insta, fb, lkdin, tt, tk, mail)=>{
+module.exports.atualizarEsc = async (primary, sb, vl, mis, vis, tel, wp, insta, fb, lkdin, tt, tk, mail)=>{
 	try{
 		console.log("entrou no programa")
 		//SINCRONIZAÇÃO DO BANCO DE DADOS
@@ -163,6 +184,9 @@ module.exports.atualizarEsc = async (primary, sb, tel, wp, insta, fb, lkdin, tt,
 		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
 		const Escritorio = await tabelas.escritorio.findByPk(primary);
 		Escritorio.sobre = sb;
+		Escritorio.valor = vl;
+		Escritorio.missao = mis;
+		Escritorio.visao = vis;
 		Escritorio.telefone = tel;
 		Escritorio.whatsapp = wp;
 		Escritorio.instagram = insta;
@@ -174,27 +198,6 @@ module.exports.atualizarEsc = async (primary, sb, tel, wp, insta, fb, lkdin, tt,
 		console.log("atualizado")
 		//SALVANDO OS NOVOS DADOS
 		const salvar = await Escritorio.save();
-
-		console.log("Salvo os dados do id: "+primary)
-	} catch(error){
-		console.log("Houve um erro: "+error)
-	}
-}
-
-module.exports.atualizarProj_Memb = async (primary, ident_memb, ident_proj)=>{
-	try{
-		console.log("entrou no programa")
-		//SINCRONIZAÇÃO DO BANCO DE DADOS
-		const sinc = await db.sync();
-		console.log(sinc);
-		console.log("sincronizado")
-		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
-		const Membros_Proj = await tabelas.proj_memb.findByPk(primary);
-		Membros_Proj.id_memb = ident_memb;
-		Membros_Proj.id_proj = ident_proj;
-		console.log("atualizado")
-		//SALVANDO OS NOVOS DADOS
-		const salvar = await Membros_Proj.save();
 
 		console.log("Salvo os dados do id: "+primary)
 	} catch(error){

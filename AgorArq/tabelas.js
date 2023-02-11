@@ -32,10 +32,6 @@ module.exports.meta = db.define('metadados',{
 		descricao:{
 			type: Sequelize.TEXT,
 			allowNull: false
-		},
-		caminho:{
-			type: Sequelize.STRING,
-			allowNull: false
 		}
 	},
 	{freezeTableName: true}
@@ -60,6 +56,30 @@ module.exports.projetos = db.define('projetos',{
 	id_ref:{
 		type: Sequelize.STRING,
 		allowNull: false
+	},
+	caminho:{
+		type: Sequelize.STRING,
+		allowNull: false
+	}
+},
+{freezeTableName: true}
+);
+
+//DEFINIÇÃO DA TABELA MEMBROS DO PROJETO
+module.exports.proj_memb = db.define('proj_memb',{
+	id:{
+		type: Sequelize.INTEGER,
+		primaryKey: true,
+		autoIncrement: true,
+		allowNull: false
+	},
+	id_memb:{
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	id_proj:{
+		type: Sequelize.STRING,
+		allowNull: false
 	}
 },
 {freezeTableName: true}
@@ -82,6 +102,42 @@ module.exports.artigos = db.define('artigo',{
 		allowNull: false
 	},
 	subtipo:{
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	caminho:{
+		type: Sequelize.STRING,
+		allowNull: false
+	}
+},
+{freezeTableName: true}
+);
+
+//DEFINIÇÃO DA TABELA LINKS
+module.exports.links = db.define('links',{
+	id:{
+		type: Sequelize.INTEGER,
+		primaryKey: true,
+		autoIncrement: true,
+		allowNull: false
+	},
+	youtube:{
+		type: Sequelize.TEXT,
+		allowNull: true
+	},
+	sketchfab:{
+		type: Sequelize.TEXT,
+		allowNull: true
+	},
+	prezi:{
+		type: Sequelize.TEXT,
+		allowNull: true
+	},
+	arquivo:{
+		type: Sequelize.TEXT,
+		allowNull: true
+	},
+	id_ref:{
 		type: Sequelize.STRING,
 		allowNull: false
 	}
@@ -132,38 +188,6 @@ module.exports.imagens = db.define('imagens',{
 {freezeTableName: true}
 );
 
-//DEFINIÇÃO DA TABELA LINKS
-module.exports.links = db.define('links',{
-	id:{
-		type: Sequelize.INTEGER,
-		primaryKey: true,
-		autoIncrement: true,
-		allowNull: false
-	},
-	youtube:{
-		type: Sequelize.TEXT,
-		allowNull: true
-	},
-	sketchfab:{
-		type: Sequelize.TEXT,
-		allowNull: true
-	},
-	prezi:{
-		type: Sequelize.TEXT,
-		allowNull: true
-	},
-	arquivo:{
-		type: Sequelize.TEXT,
-		allowNull: true
-	},
-	id_ref:{
-		type: Sequelize.STRING,
-		allowNull: false
-	}
-},
-{freezeTableName: true}
-);
-
 //DEFINIÇÃO DA TABELA SERVIÇOS
 module.exports.servicos = db.define('servicos',{
 	id:{
@@ -198,7 +222,19 @@ module.exports.escritorio = db.define('escritorio',{
 		},
 		sobre:{
 			type: Sequelize.TEXT,
-			allowNull: false
+			allowNull: true
+		},
+		valor:{
+			type: Sequelize.STRING,
+			allowNull: true
+		},
+		missao:{
+			type: Sequelize.STRING,
+			allowNull: true
+		},
+		visao:{
+			type: Sequelize.STRING,
+			allowNull: true
 		},
 		telefone:{
 			type: Sequelize.STRING,
@@ -230,27 +266,7 @@ module.exports.escritorio = db.define('escritorio',{
 		},
 		email:{
 			type: Sequelize.TEXT,
-			allowNull: false
-		}
-	},
-	{freezeTableName: true}
-);
-
-//DEFINIÇÃO DA TABELA MEMBROS DO PROJETO
-module.exports.proj_memb = db.define('proj_memb',{
-		id:{
-			type: Sequelize.INTEGER,
-			primaryKey: true,
-			autoIncrement: true,
-			allowNull: false
-		},
-		id_memb:{
-			type: Sequelize.STRING,
-			allowNull: false
-		},
-		id_proj:{
-			type: Sequelize.STRING,
-			allowNull: false
+			allowNull: true
 		}
 	},
 	{freezeTableName: true}

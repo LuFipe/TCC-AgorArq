@@ -31,7 +31,22 @@ module.exports.deleteProj = async (primary)=>{
 	}
 }
 
-module.exports.deleteMeta = async (primary)=>{
+module.exports.deleteProj_Memb = async (primary)=>{
+	try{
+		//SINCRONIZAÇÃO DO BANCO DE DADOS
+		const sinc = await db.sync();
+		console.log(sinc);
+		console.log('\nBanco de dados foi inicializado corretamente')
+		//INICIALIZAÇÃO DO BANCO DE DADOS E DESTRUIÇÃO
+		const Mem_Proj = await tabelas.proj_memb.findByPk(primary)
+		Mem_Proj.destroy();
+		console.log('\nLinhas foi destruida com sucesso, id :'+primary)
+	} catch(error){
+		console.log("Deu um erro do tipo: "+error);
+	}
+}
+
+module.exports.deleteArt = async (primary)=>{
 	try{
 		//SINCRONIZAÇÃO DO BANCO DE DADOS
 		const sinc = await db.sync();
@@ -40,6 +55,21 @@ module.exports.deleteMeta = async (primary)=>{
 		//INICIALIZAÇÃO DO BANCO DE DADOS E DESTRUIÇÃO
 		const Artigo = await tabelas.artigos.findByPk(primary)
 		Artigo.destroy();
+		console.log('\nLinhas foi destruida com sucesso, id :'+primary)
+	} catch(error){
+		console.log("Deu um erro do tipo: "+error);
+	}
+}
+
+module.exports.deleteLink = async (primary)=>{
+	try{
+		//SINCRONIZAÇÃO DO BANCO DE DADOS
+		const sinc = await db.sync();
+		console.log(sinc);
+		console.log('\nBanco de dados foi inicializado corretamente')
+		//INICIALIZAÇÃO DO BANCO DE DADOS E DESTRUIÇÃO
+		const Link = await tabelas.links.findByPk(primary)
+		Link.destroy();
 		console.log('\nLinhas foi destruida com sucesso, id :'+primary)
 	} catch(error){
 		console.log("Deu um erro do tipo: "+error);
@@ -76,21 +106,6 @@ module.exports.deleteImg = async (primary)=>{
 	}
 }
 
-module.exports.deleteLink = async (primary)=>{
-	try{
-		//SINCRONIZAÇÃO DO BANCO DE DADOS
-		const sinc = await db.sync();
-		console.log(sinc);
-		console.log('\nBanco de dados foi inicializado corretamente')
-		//INICIALIZAÇÃO DO BANCO DE DADOS E DESTRUIÇÃO
-		const Link = await tabelas.links.findByPk(primary)
-		Link.destroy();
-		console.log('\nLinhas foi destruida com sucesso, id :'+primary)
-	} catch(error){
-		console.log("Deu um erro do tipo: "+error);
-	}
-}
-
 module.exports.deleteServ = async (primary)=>{
 	try{
 		//SINCRONIZAÇÃO DO BANCO DE DADOS
@@ -115,21 +130,6 @@ module.exports.deleteEsc = async (primary)=>{
 		//INICIALIZAÇÃO DO BANCO DE DADOS E DESTRUIÇÃO
 		const Escritorio = await tabelas.escritorio.findByPk(primary)
 		Escritorio.destroy();
-		console.log('\nLinhas foi destruida com sucesso, id :'+primary)
-	} catch(error){
-		console.log("Deu um erro do tipo: "+error);
-	}
-}
-
-module.exports.deleteProj_Memb = async (primary)=>{
-	try{
-		//SINCRONIZAÇÃO DO BANCO DE DADOS
-		const sinc = await db.sync();
-		console.log(sinc);
-		console.log('\nBanco de dados foi inicializado corretamente')
-		//INICIALIZAÇÃO DO BANCO DE DADOS E DESTRUIÇÃO
-		const Mem_Proj = await tabelas.proj_memb.findByPk(primary)
-		Mem_Proj.destroy();
 		console.log('\nLinhas foi destruida com sucesso, id :'+primary)
 	} catch(error){
 		console.log("Deu um erro do tipo: "+error);

@@ -9,14 +9,15 @@ module.exports.lerTudo = async ()=>{
 	//LEITURA DE TODOS OS DADOS DE CADA TABELA
 		const metadados = await tabelas.meta.findAll();
 		const projetos = await tabelas.projetos.findAll();
+		const proj_memb = await tabelas.proj_memb.findAll();
+		const artigos = await tabelas.artigos.findAll();
+		const links = await tabelas.links.findAll();
 		const membros = await tabelas.membros.findAll();
 		const imagens = await tabelas.imagens.findAll();
-		const links = await tabelas.links.findAll();
 		const servicos = await tabelas.servicos.findAll();
 		const escritorio = await tabelas.escritorio.findAll();
-		const proj_memb = await tabelas.proj_memb.findAll();
 		
-		let dados = {metadados,projetos,membros,imagens,links,servicos,escritorio,proj_memb}
+		let dados = {metadados,projetos,proj_memb,artigos,links,membros,imagens,servicos,escritorio}
 		
 		return dados;
 		//DEBUG DE LEITURA DOS DADOS

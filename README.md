@@ -65,3 +65,7 @@ Para esse projeto é utilizado o SQLite com o ORM Sequelize.
 
 # O Upload de Arquivos
 Para esse projeto será utilizado o Middleware Multer para upar os arquivos necessários para o conteúdo.
+
+VALOR
+MISSAO
+VISÃO
