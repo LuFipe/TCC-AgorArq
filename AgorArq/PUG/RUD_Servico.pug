@@ -1,0 +1,49 @@
+doctype doctype html
+html(lang="pt-br")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Document
+	body 
+		h1 ATUALIZAR
+		form(action="/adm/atualizarServico", method="post")
+			div
+				label(for="Seletor-Atualizar-id-Servico_ID") ID
+				select(name="id_serv_atualizar", id="Seletor-Atualizar-id-Servico_ID") 
+					option(value="") NULL
+					for identificacao in SERVICO
+						option(value=identificacao['id'])=identificacao['id']
+			div
+				label(for="Atualizar-Servico_ID") SERVICO
+				input(type="text", name="servico", id="Atualizar-Servico_ID")
+			div
+				label(for="Atualizar-Intro_ID") INTRODUÇÃO
+				textarea(id="Atualizar-Intro_ID", name="introducao", cols="30", rows="10") 
+			div
+				label(for="Atualizar-Desc_ID") DESCRIÇÃO
+				textarea(id="Atualizar-Desc_ID", name="descricao", cols="30", rows="10") 
+			input(type="submit", value="ATUALIZAR")
+		h1 DELETAR
+		form(action="/adm/deletarServico", method="post")
+			label(for="Seletor-Deletar-id-Servico_ID") ID
+			select(name="id_serv_deletar", id="Seletor-Deletar-id-Servico_ID") 
+				option(value="") NULL
+				for identificacao in SERVICO
+					option(value=identificacao['id'])=identificacao['id']
+			input(type="submit", value="Deletar")
+		h1 MOSTRAR TABELA
+		table
+			tr
+				th id
+				th SERVIÇO
+				th INTRODUÇÃO
+				th DESCRIÇÃO
+			for atributo in SERVICO
+				tr
+					th=atributo['id']
+					th=atributo['servico']
+					th=atributo['introducao']
+					th
+						for paragrafo in atributo['pDescricao']
+							p=paragrafo

@@ -1,0 +1,41 @@
+doctype doctype html
+html(lang="pt-br")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Ler Membros
+	body
+		h1 ATUALIZAR:
+		form(action="/adm/atualizarMembro", method="post")
+			label(for="Seletor-id-Membro_ID") ID
+			select(name="id_memb_atualizar", id="Seletor-id-Membro_ID")
+				option(value="") NULL 
+				for identificacao in MEMBROS
+					option(value=identificacao['id'])=identificacao['id']
+			label(for="Atualizar-Formacao_ID") FORMACAO
+			input(type="text", name="formacao", id="Atualizar-Formacao_ID")
+			label(for="Atualizar-Cargo_ID") CARGO
+			input(type="text", name="cargo", id="Atualizar-Cargo_ID")
+			input(type="submit", value="ATUALIZAR")
+		h1 DELETAR:
+		form(action="/adm/deletarMembro", method="post")
+			label(for="Deletar-id-Membro_ID") ID
+			select(name="id_memb_deletar", id="Deletar-id-Membro_ID")
+				option NULL
+				for identificacao in MEMBROS
+					option(value=identificacao['id'])=identificacao['id']
+			input(type="submit", value="DELETAR")
+		h1 MOSTRAR:
+		table
+			tr
+				th ID
+				th NOME 
+				th FORMAÇÃO
+				th CARGO
+			for atributo in MEMBROS
+				tr
+					th=atributo['id']
+					th=atributo['nome']
+					th=atributo['formacao']
+					th=atributo['cargo']

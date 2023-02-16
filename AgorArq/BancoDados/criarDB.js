@@ -123,7 +123,7 @@ module.exports.criarImg = async (nm)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA SERVIÇOS
-module.exports.criarServ = async (sv, desc, tmb)=>{	
+module.exports.criarServ = async (sv, intro, desc)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
@@ -132,8 +132,8 @@ module.exports.criarServ = async (sv, desc, tmb)=>{
 		const inserir = tabela.servicos.create(
 			{
 				servico: sv,
-				descricao: desc,
-				thumbnail: tmb
+				introducao: intro,
+				descricao: desc
 			}
 		)		
 	} catch(error) {console.log("\n\nOcorreu um erro na insercao dos dados no banco de dados: "+error+"\n\n");}

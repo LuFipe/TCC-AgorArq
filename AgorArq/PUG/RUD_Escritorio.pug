@@ -1,0 +1,49 @@
+doctype doctype html
+html(lang="pt-br")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Document
+	body
+		h1 ATUALIZAR 
+		h1 DELETAR
+		h1 VISUALIZAR
+		table 
+			tr 
+				th ID
+				th SOBRE
+				th VALORES
+				th MISSÃO
+				th VISÃO
+				th TELEFONE 
+				th WHATSAPP 
+				th INSTAGRAM 
+				th FACEBOOK
+				th LINKEDIN 
+				th TWITTER 
+				th TIKTOK 
+				th EMAIL
+			for atributo in ESCRITORIO
+				tr
+					th=atributo['id']
+					th
+						for parSob in atributo['parSobre']
+							p=parSob
+					th
+						for parValor in atributo['parValor']
+							p=parValor
+					th
+						for parMis in atributo['parMissao']
+							p=parMis
+					th
+						for parVis in atributo['parVisao']
+							p=parVis
+					th=atributo['telefone']
+					th=atributo['whatsapp']
+					th=atributo['instagram']
+					th=atributo['facebook']
+					th=atributo['linkedin']
+					th=atributo['twitter']
+					th=atributo['tiktok']
+					th=atributo['email']

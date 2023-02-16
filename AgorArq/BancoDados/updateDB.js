@@ -110,7 +110,7 @@ module.exports.atualizarLinks = async (primary, yt, skf, pz, arq)=>{
 	}
 }
 
-module.exports.atualizarMembro = async (primary, nm, form, cg)=>{
+module.exports.atualizarMembro = async (primary, form, cg)=>{
 	try{
 		console.log("entrou no programa")
 		//SINCRONIZAÇÃO DO BANCO DE DADOS
@@ -119,7 +119,6 @@ module.exports.atualizarMembro = async (primary, nm, form, cg)=>{
 		console.log("sincronizado")
 		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
 		const Membro = await tabelas.membros.findByPk(primary);
-		Membro.nome = nm;
 		Membro.formacao = form;
 		Membro.cargo = cg;
 		console.log("atualizado")
@@ -152,7 +151,7 @@ module.exports.atualizarImg = async (primary, nm)=>{
 	}
 }
 
-module.exports.atualizarServ = async (primary, sv, desc, tmb)=>{
+module.exports.atualizarServ = async (primary, sv, intro, desc)=>{
 	try{
 		console.log("entrou no programa")
 		//SINCRONIZAÇÃO DO BANCO DE DADOS
@@ -162,8 +161,8 @@ module.exports.atualizarServ = async (primary, sv, desc, tmb)=>{
 		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
 		const Servico = await tabelas.servicos.findByPk(primary);
 		Servico.servico = sv;
+		Servico.introducao = intro;
 		Servico.descricao = desc;
-		Servico.tmb = tmb;
 		console.log("atualizado")
 		//SALVANDO OS NOVOS DADOS
 		const salvar = await Servico.save();

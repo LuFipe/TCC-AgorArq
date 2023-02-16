@@ -191,22 +191,22 @@ module.exports.imagens = db.define('imagens',{
 //DEFINIÇÃO DA TABELA SERVIÇOS
 module.exports.servicos = db.define('servicos',{
 	id:{
-			type: Sequelize.INTEGER,
-			primaryKey: true,
-			autoIncrement: true,
-			allowNull: false
+		type: Sequelize.INTEGER,
+		primaryKey: true,
+		autoIncrement: true,
+		allowNull: false
 		},
-		servico:{
-			type: Sequelize.STRING,
-			allowNull: true
+	servico:{
+		type: Sequelize.STRING,
+		allowNull: true
 		},
-		descricao:{
-			type: Sequelize.TEXT,
-			allowNull: true
+	introducao:{
+		type: Sequelize.TEXT,
+		allowNull: true
 		},
-		thumbnail:{
-			type: Sequelize.TEXT,
-			allowNull: true
+	descricao:{
+		type: Sequelize.TEXT,
+		allowNull: true
 		}
 	},
 	{freezeTableName: true}
