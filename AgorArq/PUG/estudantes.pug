@@ -6,27 +6,16 @@ block navimenu
 
 block conteudo
 	section(style="display: flex; flex-wrap:wrap; padding:1em")
-		div.infoCel_CLASS
-				img(src="autores/luiz_felipe.jpg", alt="SEM FOTO DE PERFIL").imgPerf_CLASS
-				h3.titleCel_CLASS LUIZ FELIPE CASTRO COELHO
-				div
-					p UNIJUAZEIRO
-					p 10º
-					div SOFTWARES:
-						ul
-							li AUTOCAD
-							li 3DSMAX
-							li REVIT
-							li PHOTOSHOP
-							li ILLUSTRATOR
-		div.infoCel_CLASS
-				img(src="autores/Eliara.jpeg", alt="SEM FOTO DE PERFIL").imgPerf_CLASS
-				h3.titleCel_CLASS ELIARA KELLY DE ALENCAR DANTAS
-				div
-					p UNIJUAZEIRO
-					p 9º
-					div SOFTWARES:
-						ul
-							li AUTOCAD
-							li SKETCHUP
-							li LUMION
+		section#memb_ID
+		h1 MEMBROS
+		hr
+		div(style="width:100%;display:flex; flex-wrap:wrap")
+			for memb in MEMBROS
+				div.infoCel_CLASS
+						img.imgPerf_CLASS(src="http://127.0.0.1:3000/imagens/"+memb['foto']+"."+memb['ext'], alt="SEM FOTO DE PERFIL")
+						h3.titleCel_CLASS=memb['nome']
+						div
+							p(style="font: bold") CARGO:
+							p=memb['cargo']
+							p(style="font: bold") FORMAÇÃO:
+							p=memb['formacao']

@@ -9,3 +9,16 @@ block navimenu
 
 block conteudo
 	section(style="display:grid; height:100%")
+		h1 SOBRE
+		hr
+		for parSob in ESCRITORIO[0]['parSobre']
+			p=parSob
+		h2 MISSÃO
+		for parMis in ESCRITORIO[0]['parMissao']
+			p=parMis
+		h2 VISÃO
+		for parVis in ESCRITORIO[0]['parVisao']
+			p=parVis
+		h2 VALORES
+		for parVal in ESCRITORIO[0]['parValor']
+			p=parVal

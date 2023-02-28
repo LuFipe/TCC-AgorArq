@@ -1,0 +1,19 @@
+extend layout 
+
+
+block navimenu
+	h1 ESCRITÓRIO
+	hr
+
+
+block conteudo
+	section(style="display:flex; flex-wrap:wrap; align-items: center;padding:1%")
+		h1 SERVIÇOS
+		hr
+		for serv in SERVICOS
+			div.infoCel_CLASS
+				div.imgHandler_CLASS
+					img.imgCel_CLASS(src="/images/projeto_arquitetonico.png", alt="NOTFOUND")
+				p.titleCel_CLASS=serv['servico']
+				p=serv['introducao']
+	

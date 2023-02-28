@@ -99,7 +99,7 @@
 
 /*ID*/
 section#manchete_ID{
-	height: 50%;
+	height: 30%;
 	display: grid;
 	grid-template-rows: 33% 33% 33% ;
 	grid-template-columns: 66% 34% ;
