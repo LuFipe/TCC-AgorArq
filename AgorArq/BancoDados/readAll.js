@@ -155,6 +155,28 @@ module.exports.lerImg = async ()=>{
 	}
 };
 
+module.exports.lerImgOnde = async (chave)=>{
+	try{
+		//SINCRONIZAR COM O BANCO DE DADOS
+		const sinc = await db.sync();
+		console.log("Sincronização completa:\n")
+		console.log(sinc)
+		//LEITURA
+		const dados = await tabelas.imagens.findAll(
+			{
+				where:{
+					'natureza':chave
+				}
+			}
+		)
+		console.log("Leitura com sucesso:\n")
+		console.log(dados)
+		return dados
+	} catch(error){
+		console.log("Error na leitura dos imagens: "+error)
+	}
+};
+
 module.exports.lerServ = async ()=>{
 	try{
 		//SINCRONIZAR COM O BANCO DE DADOS

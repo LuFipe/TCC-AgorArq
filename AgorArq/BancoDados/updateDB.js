@@ -131,7 +131,7 @@ module.exports.atualizarMembro = async (primary, form, cg)=>{
 	}
 }
 
-module.exports.atualizarImg = async (primary, nm)=>{
+module.exports.atualizarImg = async (primary, nm, nat, ext, ref)=>{
 	try{
 		console.log("entrou no programa")
 		//SINCRONIZAÇÃO DO BANCO DE DADOS
@@ -141,6 +141,9 @@ module.exports.atualizarImg = async (primary, nm)=>{
 		//INICIALIZAÇÃO DA TABELA A SER ATUALIZADA
 		const Imagem = await tabelas.imagens.findByPk(primary);
 		Imagem.nome = nm;
+		Imagem.natureza = nat;
+		Imagem.extensao = ext;
+		Imagem.id_ref = ref;
 		console.log("atualizado")
 		//SALVANDO OS NOVOS DADOS
 		const salvar = await Imagem.save();

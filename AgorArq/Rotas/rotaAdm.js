@@ -1,11 +1,34 @@
-let path =require('path');
+const path =require('path');
 const express = require('express');
 const criar = require('../BancoDados/criarDB')
 const ler = require('../BancoDados/readAll')
 const atualizar = require('../BancoDados/updateDB')
 const deletar = require('../BancoDados/deleteDB')
+const multer = require('multer')
 
+let img_path = path.join(__dirname,"../front/imagens")
 const rota = express.Router();
+
+//DEFINIÇÕE DO MULTER
+const storageImagem = multer.diskStorage({
+	destination: (req,file, cb)=>{
+		cb(null, path.join(__dirname,"../front/imagens"))
+	},
+	filename: (req,file,cb)=>{
+		let nm = req.body.image_name;
+		let nome_comp = file.originalname;
+		let nome = nome_comp.split('.');
+
+		cb(null,nm+"."+nome[nome.length-1])
+	}
+})
+const uploadImagem = multer({storage: storageImagem})
+
+const storgeArquivo = multer.diskStorage({
+	destination: (req,file,cb)=>{
+		cb(null, path.join(__dirname,"../front/imagens"))
+	}
+})
 
 //HOME PAGE
 rota.get('/',(req,res,next)=>{
@@ -108,18 +131,61 @@ rota.post('/addEscrit',(req,res,next)=>{
 	res.send("Escritorio Criado, verificar console e DB")
 })
 
+rota.get('/addImagem',async(req,res,next)=>{
+	let id_membros = await ler.lerMembros()
+	id_membros = JSON.stringify(id_membros);
+	id_membros = JSON.parse(id_membros)
+	console.log("\n\nMostrando o objeto dos membros:\n")
+	console.log(id_membros)
+	res.render('add_Imagem',{'ID':id_membros})
+})
+
+rota.post('/addImagem',uploadImagem.single('imagem_file'), (req,res,next)=>{
+	//QUANDO ENTRANDO COM OS DADOS PELO FORMS
+	//É NECESSÁRIO QUE OS ARQUIVOS SEJAM COLOCADOS APÓS TODOS OS TEXTOS
+	//NO HTML
+	let nm = req.body.image_name;
+	let nat = req.body.nat_imagem;
+	let ref = req.body.id_memb_ref;
+
+	let nome_comp = req.file.originalname;
+	let nome = nome_comp.split('.');
+	let extens = nome[nome.length-1]
+	
+	criar.criarImg(nm,nat,extens,ref)
+	res.send("Check o console")
+})
+
 //ROTAS DE LEITURAS
 rota.get('/RUDMember', async (req,res,next)=>{
 	//AS FUNÇÕES PARA LER O BANCO DE DADOS SÃO ASSINCRONAS,
 	//PORTANTO PRECISAMOS ESPERAR (await) A RESPOSTA DE TAIS FUNÇÕES PARA CONTINUAR.
 	//PARA ESPERAR, PRECISAMOS ESTAR DENTRO DE NUMA FUNÇÃO ASSINCRONA ('async()=>{}')
-	lista_Membros = await ler.lerMembros();
-
+	let lista_Membros = await ler.lerMembros();
+	let lista_Fotos = await ler.lerImgOnde('membro')
+	
 	//O OBJETO RETORNADO PELO SEQUELIZE NÃO É UM JSON TRADICIONAL (object SequelizeInstance)
 	//PRECISAMOS TRSANSFORMAR NUM JSON TRADICONAL (object Object) COM OS COMANDOS:
 	//JSON.stringfy(object) & JSON.parse(object)
 	lista_Membros = JSON.stringify(lista_Membros)
 	lista_Membros = JSON.parse(lista_Membros)
+	
+	lista_Fotos = JSON.stringify(lista_Fotos);
+	lista_Fotos = JSON.parse(lista_Fotos)
+	
+	//ITERAÇÃO PARA ADICIONAR A FOTO AO MEMBRO
+	for(let i = 0; i<lista_Membros.length;i++){
+		for(let j = 0; j< lista_Fotos.length;j++){
+			if(lista_Membros[i].id == lista_Fotos[j].id_ref){
+				lista_Membros[i].foto = lista_Fotos[j].nome
+				lista_Membros[i].ext = lista_Fotos[j].extensao
+				break;
+			} else {
+				lista_Membros[i].foto = null;
+				lista_Membros[i].ext = null
+			}
+		}
+	}
 	res.render("RUD_Member",{'MEMBROS':lista_Membros})
 });
 
@@ -178,7 +244,7 @@ rota.post('/atualizarMembro',async(req,res,next)=>{
 	lista_Membros = await ler.lerMembros();
 	lista_Membros = JSON.stringify(lista_Membros)
 	lista_Membros = JSON.parse(lista_Membros)
-	res.render("read_Member",{'MEMBROS':lista_Membros})
+	res.render("RUD_Member",{'MEMBROS':lista_Membros})
 })
 
 rota.post('/atualizarServico',async(req,res,next)=>{

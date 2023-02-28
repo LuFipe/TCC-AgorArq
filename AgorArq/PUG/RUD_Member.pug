@@ -29,12 +29,15 @@ html(lang="pt-br")
 		h1 MOSTRAR:
 		table
 			tr
+				th FOTO
 				th ID
 				th NOME 
 				th FORMAÇÃO
 				th CARGO
 			for atributo in MEMBROS
 				tr
+					th
+						img(src="http://127.0.0.1:3000/imagens/"+atributo['foto']+"."+atributo['ext'], alt="NÃO HÁ IMAGEM", style="width:3em ; height:4em")
 					th=atributo['id']
 					th=atributo['nome']
 					th=atributo['formacao']

@@ -111,13 +111,23 @@ module.exports.criarMemb = async (ident, nm, form, cg)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA IMAGENS
-module.exports.criarImg = async (nm)=>{	
+module.exports.criarImg = async (nm, nat, ext, ref)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
+	console.log("entrou na criação da imagem")
 		const sinc = await db.sync();
 		console.log(sinc);
+	console.log("sincronizado")
 	//ADICIONANDO DADOS NO DB
-		const inserir = tabela.imagens.create({nome: nm})
+		const inserir = tabela.imagens.create(
+			{
+				nome: nm,
+				natureza: nat,
+				extensao: ext,
+				id_ref: ref
+			}
+		)
+		console.log("Criado e salvo")
 		
 	} catch(error) {console.log("\n\nOcorreu um erro na insercao dos dados no banco de dados: "+error+"\n\n");}
 };

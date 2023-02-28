@@ -180,6 +180,14 @@ module.exports.imagens = db.define('imagens',{
 		type: Sequelize.STRING,
 		allowNull: false
 	},
+	natureza:{
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	extensao:{
+		type: Sequelize.STRING,
+		allowNull:false
+	},
 	id_ref:{
 		type: Sequelize.STRING,
 		allowNull: false
