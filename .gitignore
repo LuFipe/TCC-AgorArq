@@ -2,7 +2,7 @@ AgorArq/front/artigos/*
 AgorArq/front/imagens/*
 AgorArq/front/membros/*
 AgorArq/front/HTML/*
-AgorArq/DataBase/database.sqlite
+AgorArq/BancoDados/database.sqlite
 AgorArq/front/projetos/*
 AgorArq/front/trabalhos/*
 AgorArq/front/autores/*

@@ -28,11 +28,8 @@ html(lang="pt-br")
 							input(type="radio", id="Tipo_Link-Meta_ID", name="Tipo", value="link")
 							label(for="Tipo_Link-Meta_ID") LINK
 					div
-						label(for="Data-Meta_ID") DATA
-						input(type="text" id="Data-Meta_ID", name="Data")
-					div
 						p INTRODUCAO
-						textarea(id="Intro-Meta_ID" name="Descricao", cols="60", rows="4") 
+						textarea(id="Intro-Meta_ID" name="Introducao", cols="60", rows="4") 
 					div
 						p DESCRICAO
 						textarea(id="Descricao-Meta_ID" name="Descricao", cols="60", rows="50") 
@@ -48,7 +45,7 @@ html(lang="pt-br")
 				section ARTIGO
 					div
 						label(for="Assunto-Artigo_ID") ASSUNTO
-						input(type="text", id="Assunto-Artigo_ID", name="Escritorio")
+						input(type="text", id="Assunto-Artigo_ID", name="assunto")
 					section
 						div
 							input(type="radio", id="Subtipo_Artigo-Artigo_ID", name="Subtipo", value="artigo")
@@ -70,6 +67,6 @@ html(lang="pt-br")
 							label(for="Prezi-Link_ID") PREZI
 					div 
 						label(for="Hiper-Link_ID") LINK
-						input(type="text", id="Hiper-Link_ID", name="hiperlink")
+						input(type="text", id="Hiper-Link_ID", name="Hiperlink")
 				input(type="submit")
 		footer 

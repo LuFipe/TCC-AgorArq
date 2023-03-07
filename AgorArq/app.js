@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: false}))
 app.use('/',rotaU);
 app.use('/adm',rotaA);
 
-let server = app.listen(3000,()=>{
+let server = app.listen(3000/*,'localhost'*/,()=>{
 	console.log("Listenin in port 3000")
 });
 

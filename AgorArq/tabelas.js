@@ -21,10 +21,6 @@ module.exports.meta = db.define('metadados',{
 			type: Sequelize.STRING,
 			allowNull: false
 		},
-		data:{
-			type: Sequelize.DATE,
-			allowNull: false
-		},
 		intro:{
 			type: Sequelize.TEXT,
 			allowNull: false

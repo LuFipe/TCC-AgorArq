@@ -44,17 +44,45 @@ rota.post('/addMeta',(req,res,next)=>{
 	let ident = req.body.ID;
 	let nm = req.body.Nome;
 	let tp = req.body.Tipo;
-	let dt = req.body.Data;
 	let it = req.body.Introducao;
 	let desc = req.body.Descricao;
-	console.log("\nDados PAssados são:\n\n")
-	console.log(ident);
-	console.log(nm);
-	console.log(tp);
-	console.log(dt);
-	console.log(it);
-	console.log(desc);
-	console.log("\nFim dos dados\n\n")
+	console.log("\nOs valores passados pelo metadado são:")
+	console.log(ident)
+	console.log(nm)
+	console.log(tp)
+	console.log(it)
+	console.log(desc)
+
+	criar.criarMeta(ident,nm,tp,it,desc)
+	switch(tp){
+		case "projeto":
+			let esc = req.body.escritorio;
+			let met = req.body.metragem;
+			break;
+		case "artigo":
+			let assunto = req.body.assunto;
+			let subtipo = req.body.subtipo;
+			break;
+		case "link":
+			let site = req.body.Link;
+			let urlSite = req.body.Hiperlink;
+			console.log("\nEntrou nos dados de link. Os dados passados foram: ")
+			console.log(site)
+			console.log(urlSite)
+			switch(site){
+				case "youtube":
+					criar.criarLink(urlSite,null,null,null,ident)
+					break;
+				case "sketchfab":
+					criar.criarLink(null,urlSite,null,null,ident)
+					break;
+				case "prezi":
+					criar.criarLink(null,null,urlSite,null,ident)
+					break;
+			}
+			break;
+	}
+
 	res.send("Check Console para dados do Meta")
 })
 
@@ -135,9 +163,11 @@ rota.get('/addImagem',async(req,res,next)=>{
 	let id_membros = await ler.lerMembros()
 	id_membros = JSON.stringify(id_membros);
 	id_membros = JSON.parse(id_membros)
-	console.log("\n\nMostrando o objeto dos membros:\n")
-	console.log(id_membros)
-	res.render('add_Imagem',{'ID':id_membros})
+	
+	let id_serv = await ler.lerServ()
+	id_serv = JSON.stringify(id_serv)
+	id_serv = JSON.parse(id_serv)
+	res.render('add_Imagem',{'ID_MEMB':id_membros,'ID_SERV':id_serv})
 })
 
 rota.post('/addImagem',uploadImagem.single('imagem_file'), (req,res,next)=>{

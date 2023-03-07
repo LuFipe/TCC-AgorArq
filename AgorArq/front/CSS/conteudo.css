@@ -13,13 +13,6 @@
 	grid-template-columns: 20% 80%;
 }
 
-.contCel_CLASS{
-	width: 100%;
-	grid-column: 1 / 2;
-	box-shadow: rgba(118,184,51,1) .1em .1em .5em;
-	border-radius: .2em;
-}
-
 .manchete_CLASS{
 	display: grid;
 	grid-template-columns: 100%;
@@ -68,7 +61,7 @@
 	grid-template-columns: 100%;
 }
 
-.imgHandler_CLASS{
+.imgCont_CLASS{
 	display: flex;
 	max-width: 100%;
 	max-height: 100%;
@@ -79,7 +72,7 @@
 	overflow: hidden;
 }
 
-.tituloProj_CLASS{
+.contProj_CLASS{
 	grid-row: 1 / 2;
 	grid-column: 2 / 3;
 }
@@ -89,7 +82,7 @@
 	grid-column: 2 / 3;
 }
 
-.projButton_CLASS{
+.linkButton_CLASS{
 	width: 100%;
 	height: 100%;
 	grid-row: 1 / 3;

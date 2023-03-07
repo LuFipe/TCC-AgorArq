@@ -12,14 +12,45 @@ rota.get('/',(req,res,next)=>{
 // 	res.render("PA")
 // })
 
-rota.get('/projetos',(req,res,next)=>{
-	res.render("projetos")
+rota.get('/projetos',async(req,res,next)=>{
+	let metadados = await ler.lerMeta();
+	metadados = JSON.stringify(metadados);
+	metadados = JSON.parse(metadados)
+
+	//LETRAS MAIUSCULAS
+	for(let i =0; i<metadados.length;i++){
+		metadados[i]['nome'] = metadados[i]['nome'].toUpperCase();
+	}
+
+	res.render("projetos",{"CELULA":metadados})
+})
+
+rota.post('/videoTeste',async(req,res,next)=>{
+	let ident = req.body.id_NAME;
+	console.log(ident)
+
+	let id_meta = await ler.lerMetaOnde(ident)
+	id_meta = JSON.stringify(id_meta)
+	id_meta = JSON.parse(id_meta)
+
+	let parDesc = id_meta[0]['descricao'].split('\n')
+	id_meta[0].paragrafos = parDesc;
+
+	let id_link = await ler.lerLinkOnde(ident)
+	id_link = JSON.stringify(id_link)
+	id_link = JSON.parse(id_link)
+
+	console.log(id_meta)
+	console.log(id_link)
+	
+	res.render("LINK",{'META':id_meta,'LINK':id_link})
+
 })
 
 rota.get('/servicos',async(req,res,next)=>{
 	
 	//RECUPERANDO INFORMAÇÕES DO ESCRITORIO
-	let lista_Escritorio = await ler.lerEsc();
+	/*let lista_Escritorio = await ler.lerEsc();
 	lista_Escritorio = JSON.stringify(lista_Escritorio)
 	lista_Escritorio = JSON.parse(lista_Escritorio)
 	for(let i=0;i<lista_Escritorio.length;i++){
@@ -31,7 +62,7 @@ rota.get('/servicos',async(req,res,next)=>{
 		lista_Escritorio[i].parValor = pValor;
 		lista_Escritorio[i].parMissao = pMissao;
 		lista_Escritorio[i].parVisao = pVisao;
-	}
+	}*/
 
 	//RECUPERANDO INFORMAÇÕES DE SERVIÇOS
 	lista_Servico = await ler.lerServ();
@@ -43,11 +74,27 @@ rota.get('/servicos',async(req,res,next)=>{
 		lista_Servico[i].pDescricao = pDesc;
 	}
 
-	res.render("servicos",{'ESCRITORIO':lista_Escritorio,'SERVICOS':lista_Servico})
-})
+	//RECUPERANDO INFORMAÇÕES DAS IMAGENS DE PERFIL
+	let lista_Fotos = await ler.lerImgOnde('servico')
+	lista_Fotos = JSON.stringify(lista_Fotos);
+	lista_Fotos = JSON.parse(lista_Fotos)
 
-rota.get('/bd',(req,res,next)=>{
-	res.render("bd")
+	//RELACIONANDO PERFIS A MEMBROS
+	//COLOCANDO LETRAS MAIÚSCULAS
+	for(let i = 0; i<lista_Servico.length;i++){
+		for(let j = 0; j< lista_Fotos.length;j++){
+			if(lista_Servico[i].id == lista_Fotos[j].id_ref){
+				lista_Servico[i].foto = lista_Fotos[j].nome
+				lista_Servico[i].ext = lista_Fotos[j].extensao
+				break;
+			} else {
+				lista_Servico[i].foto = null;
+				lista_Servico[i].ext = null
+			}
+		}
+	}
+
+	res.render("servicos",{/*'ESCRITORIO':lista_Escritorio,*/'SERVICOS':lista_Servico})
 })
 
 rota.get('/sobre',async(req,res,next)=>{
@@ -83,7 +130,9 @@ rota.get('/estudantes',async(req,res,next)=>{
 	lista_Fotos = JSON.parse(lista_Fotos)
 
 	//RELACIONANDO PERFIS A MEMBROS
+	//COLOCANDO LETRAS MAIÚSCULAS
 	for(let i = 0; i<lista_Membros.length;i++){
+		lista_Membros[i]['nome'] = lista_Membros[i]['nome'].toUpperCase();
 		for(let j = 0; j< lista_Fotos.length;j++){
 			if(lista_Membros[i].id == lista_Fotos[j].id_ref){
 				lista_Membros[i].foto = lista_Fotos[j].nome

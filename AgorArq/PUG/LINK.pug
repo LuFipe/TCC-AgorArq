@@ -1,0 +1,11 @@
+extend layout 
+
+block conteudo
+	section
+		
+		iframe(width="560" height="315" src=LINK[0]['youtube'], title=META[0]['nome'], frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen)
+		hr
+	section
+		div
+			for par in META[0]['paragrafos']
+				p=par

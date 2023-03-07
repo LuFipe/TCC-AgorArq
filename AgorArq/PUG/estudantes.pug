@@ -1,21 +1,21 @@
 extend layout
 
-block navimenu
-	h1 ESTUDANTES
-	hr
+block CABECALHO
+	div.headImg_CLASS(style="background-image: url(imagens/fiscalizacao_de_obras.jpg);")
+		h1.cabecallho_CLASS ESTUDANTES
 
 block conteudo
-	section(style="display: flex; flex-wrap:wrap; padding:1em")
-		section#memb_ID
-		h1 MEMBROS
-		hr
+	section(style="display: flex; flex-wrap:wrap;")
+		div(style="width:100%")
+			h1 MEMBROS
+			hr
 		div(style="width:100%;display:flex; flex-wrap:wrap")
 			for memb in MEMBROS
 				div.infoCel_CLASS
 						img.imgPerf_CLASS(src="http://127.0.0.1:3000/imagens/"+memb['foto']+"."+memb['ext'], alt="SEM FOTO DE PERFIL")
 						h3.titleCel_CLASS=memb['nome']
 						div
-							p(style="font: bold") CARGO:
-							p=memb['cargo']
-							p(style="font: bold") FORMAÇÃO:
-							p=memb['formacao']
+							h3(style="font: bold; padding-left:1.5em; margin-bottom: .1em") CARGO:
+							p(style="padding:0")=memb['cargo']
+							h3(style="font: bold; padding-left:1.5em; margin-bottom: .1em") FORMAÇÃO:
+							p(style="padding:0")=memb['formacao']

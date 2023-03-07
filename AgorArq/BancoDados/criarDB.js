@@ -3,7 +3,7 @@ const db = require('../db');
 const tabela = require('../tabelas');
 
 //INSERÇÃO DE DADOS NA TABELA METADADOS
-module.exports.criarMeta = async (ident, nm, tp, dt, it, desc)=>{
+module.exports.criarMeta = async (ident, nm, tp, it, desc)=>{
 	try{
 	//ETAPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
@@ -14,7 +14,6 @@ module.exports.criarMeta = async (ident, nm, tp, dt, it, desc)=>{
 				id: ident,
 				nome: nm,
 				tipo: tp,
-				data: dt,
 				intro: it,
 				descricao: desc
 			}
@@ -75,7 +74,7 @@ module.exports.criarArt = async (subj, subt, cam)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA LINKS
-module.exports.criarLink = async (yt, skf, pz, arq)=>{	
+module.exports.criarLink = async (yt, skf, pz, arq, idr)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
@@ -86,7 +85,8 @@ module.exports.criarLink = async (yt, skf, pz, arq)=>{
 				youtube: yt,
 				sketchfab: skf,
 				prezi: pz,
-				arquivo: arq
+				arquivo: arq,
+				id_ref: idr
 			}
 		)		
 	} catch(error) {console.log("\n\nOcorreu um erro na insercao dos dados no banco de dados: "+error+"\n\n");}

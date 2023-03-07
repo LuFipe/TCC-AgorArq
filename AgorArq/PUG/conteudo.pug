@@ -1,8 +1,8 @@
 extend layout 
 
-block navimenu
-	h1 CONTEUDO
-	hr
+block CABECALHO
+	div.headImg_CLASS(style="background-image: url(imagens/960x0.jpg);")
+		h1.cabecallho_CLASS CONTEUDO
 
 
 block conteudo
@@ -28,49 +28,35 @@ block conteudo
 				h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
 			img(src="trabalhos/00010/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
 	hr
-	section(style="display: grid; grid-template-columns:65% 35%; padding:1em")
+	section(style="display: grid; padding:1em")
 		div
 			div(class="infoCel_CLASS contCel_CLASS")
-				a.projButton_CLASS(href="/cultural")
-				div.imgHandler_CLASS
+				a.linkButton_CLASS(href="/cultural")
+				div.imgCont_CLASS
 					img.imgCel_CLASS(src="projetos/00002/thumbnail.png", alt="")
-				p.tituloProj_CLASS CENTRO CUTURAL
+				p.contProj_CLASS CENTRO CUTURAL
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
 			div(class="infoCel_CLASS contCel_CLASS")
-				a.projButton_CLASS(href="/edificil")
-				div.imgHandler_CLASS
+				a.linkButton_CLASS(href="/edificil")
+				div.imgCont_CLASS
 					img.imgCel_CLASS(src="projetos/00003/thumbnail.png", alt="")
-				p.tituloProj_CLASS VILA VIEIRA
+				p.contProj_CLASS VILA VIEIRA
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
 			div(class="infoCel_CLASS contCel_CLASS")
-				a.projButton_CLASS(href="/hospital")
-				div.imgHandler_CLASS
+				a.linkButton_CLASS(href="/hospital")
+				div.imgCont_CLASS
 					img.imgCel_CLASS(src="projetos/00004/thumbnail.jpg", alt="")
-				p.tituloProj_CLASS PROJETO HOSPITALAR
+				p.contProj_CLASS PROJETO HOSPITALAR
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
 			div(class="infoCel_CLASS contCel_CLASS")
-				a.projButton_CLASS(href="/loteamento")
-				div.imgHandler_CLASS
+				a.linkButton_CLASS(href="/loteamento")
+				div.imgCont_CLASS
 					img.imgCel_CLASS(src="projetos/00005/thumbnail.png", alt="")
-				p.tituloProj_CLASS LOTEAMENTO
+				p.contProj_CLASS LOTEAMENTO
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
 			div(class="infoCel_CLASS contCel_CLASS")
-				a.projButton_CLASS(href="/estudo_paisagismo")
-				div.imgHandler_CLASS
+				a.linkButton_CLASS(href="/estudo_paisagismo")
+				div.imgCont_CLASS
 					img.imgCel_CLASS(src="projetos/00006/thumbnail.jpg", alt="")
-				p.tituloProj_CLASS PAISAGISMO HOSPITALAR
+				p.contProj_CLASS PAISAGISMO HOSPITALAR
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-		div
-			div(class="miniCel_CLASS" style="background-color:gray")
-				div.manchete_CLASS
-					a.manchButton_CLASS(href="/diag_praca")
-						h3.manchTitulo_CLASS Paisagismo 
-						h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
-					img(src="HTML/00012/thumbnail.png", alt="NOT FOUND", class="icone_CLASS manchImg_CLASS")
-				div.manchete_CLASS
-					a.manchButton_CLASS(href="/diag_urb")
-						h3.manchTitulo_CLASS Urbanistico 
-						h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
-					img(src="HTML/00013/thumbnail.png", alt="NOT FOUND", class="icone_CLASS manchImg_CLASS")
-	hr
-	section

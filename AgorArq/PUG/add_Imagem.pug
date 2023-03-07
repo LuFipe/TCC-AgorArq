@@ -12,14 +12,27 @@ html(lang="pt-br")
 				label(for="image_name_ID") NOME
 				input(type="text", name="image_name", id="image_name_ID")
 				label(for="nat_imagem_ID") Foto de:
-				select(name="nat_imagem", id="nat_imagem_ID") 
-					option(value="membro") Membro
-					option(value="serviço") Serviço
-					option(value="artigo") Artigo
-					option(value="projetos") Projeto
+				input(type="hidden",name="nat_imagem", id="nat_imagem_ID", value="membro") 
 				label(for="ref_imagem_ID") ID de REFERENCIA
 				select(name="id_memb_ref")
-					for i in ID
+					for i in ID_MEMB
+						option(value=i['id'])=i['id'] 
+				
+				//COMO ESTAMOS PASSANDO UM ARQUVO PELO MULTER
+				//É PRECISO QUE SEU CAMPO SEJA O ULTIMO
+				//ISSO GARANTE QUE O req.body DO MULTER SEJA POPULADO
+				label(for="imagem_file_ID") ARQUIVO
+				input(type="file", name="imagem_file", id="imagem_file_ID")
+				
+				input(type="submit")
+			form(action="/adm/addImagem", method="post", enctype="multipart/form-data") 
+				label(for="image_name_ID") NOME
+				input(type="text", name="image_name", id="image_name_ID")
+				label(for="nat_imagem_ID") Foto de:
+				input(type="hidden",name="nat_imagem", id="nat_imagem_ID", value="servico") 
+				label(for="ref_imagem_ID") ID de REFERENCIA
+				select(name="id_memb_ref")
+					for i in ID_SERV
 						option(value=i['id'])=i['id'] 
 				
 				//COMO ESTAMOS PASSANDO UM ARQUVO PELO MULTER

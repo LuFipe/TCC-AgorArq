@@ -10,25 +10,22 @@ html(lang="pt-br")
 		link(rel="stylesheet", href="/CSS/escritorio.css")
 		link(rel="stylesheet", href="/CSS/projetos.css")
 		link(rel="stylesheet", href="/CSS/apresentacao.css")
+		link(rel="stylesheet", href="/CSS/servicos.css")
 		title AgorArq 
 	body
-		header
-			section.mainMenu_CLASS(style="height: 2.5em")
-				div(style="margin-left:3vw; font-size:1.5em") AgorArq
-				div(style="margin-right:7vw")
-					input(type="text")
-					span BUSCA
-			hr
-			section.mainMenu_CLASS(style="padding-left: 15vw; padding-right:15vw")
+		main
+			section.latmenu_CLASS#navi_ID
+				div(style="height:5em; font-size:1.5em") AgorArq
+				hr
 				a.mainButton_CLASS(href="/") CONTEUDO
 				a.mainButton_CLASS(href="/projetos") PROJETOS
 				a.mainButton_CLASS(href="/servicos") SERVIÇOS
 				a.mainButton_CLASS(href="/estudantes") EQUIPE
 				a.mainButton_CLASS(href="/sobre") SOBRE
-		main
-			section.latmenu_CLASS#navi_ID
-				block navimenu
-			section#feed_ID
-				div#conteudo_ID
+			div
+				section.mainMenu_CLASS
+					block CABECALHO
+				section#feed_ID
+					//div#conteudo_ID
 					block conteudo
 		footer

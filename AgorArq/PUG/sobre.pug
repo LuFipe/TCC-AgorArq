@@ -1,15 +1,12 @@
 extend layout 
 
-block navimenu
-	h1 SOBRE
-	hr
-	h3 O Site
-	h3 Os Patrocinadores
-	h3 A Situação Legal
+block CABECALHO
+	div.headImg_CLASS(style="background-image: url(imagens/iStock-936384788.jpg);")
+		h1.cabecallho_CLASS SOBRE
 
 block conteudo
 	section(style="display:grid; height:100%")
-		h1 SOBRE
+		h1 ESCRITORIO
 		hr
 		for parSob in ESCRITORIO[0]['parSobre']
 			p=parSob

@@ -5,17 +5,43 @@ rgba(163,255,71,1)		Verde Paris Forte
 rgba(118,184,51,1)		Verde Paris Medio
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;600;700;800;900&display=swap');
+
+
+:root{
+	--main-color:rgba(126, 126, 126,1);
+	--submain-color:rgba(197, 197, 197,1);
+	--second-color:rgba(75, 75, 75,1);
+	--subsecond-color:rgba(20, 20, 20);
+	--bg-color: black;
+	--font-color: white;
+
+	--fontH1: 'Oswald', sans-serif;
+	--fontAH23: 'Ubuntu', sans-serif;
+	--fontP: 'Arvo', serif;
+
+}
+
+
+
+/*							*/
+/*			CORES			*/
+/*							*/
 
 /*ELEMENTS*/
 body{
-	color: white
+	background-color: 	rgb(255,255,240);
+	color: var(--font-color);
 }
 header{
-	background-color: rgba(25, 83, 89, 1);
+	background-color:var(--main-color);
 }
 
 main{
-	border-color: rgba(163,255,71,1);
+	border-color: var(--second-color);
 }
 
 footer{
@@ -23,32 +49,36 @@ footer{
 }
 
 hr{
-	background-color: rgba(163,255,71,1);
-	color: rgba(163,255,71,1);
+	background-color: var(--second-color);
+	color: var(--second-color);
 }
 
 button{
-	background-color: rgba(118,184,51,1);
+	background-color: var(--subsecond-color);
 }
 
 button:focus{
-	background-color: rgba(163,255,71,1);
+	background-color: var(--second-color);
 }
 
 /*CLASSES*/
 
 .mainButton_CLASS{
-	color:white
+	color: var(--font-color);
+}
+
+.cabecallho_CLASS{
+	color: var(--main-color)
 }
 
 /*ID*/
 
 section#feed_ID{
-	color: black;
+	color: var(--bg-color);
 }
 
 div#submenu_ID{
-	background-color: rgba(51,170,184,1);
+	background-color: var(--submain-color);
 }
 
 div#conteudo_ID{
@@ -56,6 +86,22 @@ div#conteudo_ID{
 }
 
 section#navi_ID{
-	background: rgba(25, 83, 89, 1);
-	border-color: rgba(163,255,71,1);
+	background: var(--main-color);
+	border-color: var(--second-color);
+}
+
+/*							*/
+/*			FONTES			*/
+/*							*/
+
+h1{
+	font-family: var(--fontH1);
+}
+
+h2, h3, a{
+	font-family: var(--fontAH23);
+}
+
+p{
+	font-family: var(--fontP);	
 }

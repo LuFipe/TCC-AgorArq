@@ -57,6 +57,24 @@ module.exports.lerMeta = async ()=>{
 	}
 };
 
+module.exports.lerMetaOnde = async(ident)=>{
+	try{
+		const sinc = await db.sync();
+		console.log("Sincronização completa:\n")
+		console.log(sinc)
+
+		let meta = await tabelas.meta.findAll({
+			where:{
+				'id': ident
+			}
+		})
+
+		return meta;
+	} catch(err){
+		console.log("Deu erro em localizar a meta do tipo: "+err)
+	}
+}
+
 module.exports.lerProjetos = async ()=>{
 	try{
 		//SINCRONIZAR COM O BANCO DE DADOS
@@ -120,6 +138,25 @@ module.exports.lerLink = async ()=>{
 		console.log("Error na leitura dos links: "+error)
 	}
 };
+
+module.exports.lerLinkOnde = async(ident)=>{
+	try{
+		//SINCRONIZAR COM O BANCO DE DADOS
+		const sinc = await db.sync();
+		console.log("Sincronização completa:\n")
+		console.log(sinc)
+
+		//LEITURA
+		const dados = await tabelas.links.findAll({
+			where:{
+				'id_ref': ident
+			}
+		})
+		return dados
+	} catch(err){
+		console.log("Deu erro em localizar o link do tipo: "+err)
+	}
+}
 
 module.exports.lerMembros = async ()=>{
 	try{
