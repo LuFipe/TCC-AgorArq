@@ -1,62 +1,81 @@
 extend layout 
 
 block CABECALHO
-	div.headImg_CLASS(style="background-image: url(imagens/960x0.jpg);")
-		h1.cabecallho_CLASS CONTEUDO
+	div(style="background:gray; height:2em; position:fixed; width:100%; opacity:.5") teste div de cabeçalho
+	img(src="imagens/logo.jpeg", alt="", style="height:15em; margin: 5em auto 1em")
+	h1.cabecallho_CLASS CONTEUDO
+	section.latmenu_CLASS#navi_ID
+		a.mainButton_CLASS(href="/") CONTEUDO
+		a.mainButton_CLASS(href="/projetos") PROJETOS
+		a.mainButton_CLASS(href="/servicos") SERVIÇOS
+		a.mainButton_CLASS(href="/estudantes") EQUIPE
+		a.mainButton_CLASS(href="/sobre") SOBRE
 
 
 block conteudo
 	section#manchete_ID
 		div.manchete_CLASS(style="width: 100%; height: 100%; grid-row-start: 1; grid-row-end: 4;")
-			a.manchButton_CLASS(href="/interiores", style="grid-template-rows: auto 3em 10em;")
+			a.icone_CLASS.manchButton_CLASS(href="/interiores", style="grid-template-rows: auto 3em 10em; height:93.5%; width:93.5%")
 				h1.manchTitulo_CLASS Projeto de Interiores 
 				h2.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
-			img(src="projetos/00007/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
+			img(src="projetos/00007/thumbnail.png", alt="SEM IMAGEM", class="icone_CLASS manchImg_CLASS", style="height:93.5%; width:93.5%")
 		div.manchete_CLASS
-			a.manchButton_CLASS(href="/washington")
+			a.icone_CLASS.manchButton_CLASS(href="/washington")
 				h2.manchTitulo_CLASS Carta de Washington 
 				h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
 			img(src="trabalhos/00008/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
 		div.manchete_CLASS
-			a.manchButton_CLASS(href="/catalogo")
+			a.icone_CLASS.manchButton_CLASS(href="/catalogo")
 				h2.manchTitulo_CLASS Catálogo de Vegetações 
 				h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
 			img(src="trabalhos/00009/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
 		div.manchete_CLASS
-			a.manchButton_CLASS(href="/estudo_paisagismo")
+			a.icone_CLASS.manchButton_CLASS(href="/estudo_paisagismo")
 				h2.manchTitulo_CLASS Paisagismo 
 				h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
 			img(src="trabalhos/00010/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
 	hr
-	section(style="display: grid; padding:1em")
-		div
-			div(class="infoCel_CLASS contCel_CLASS")
-				a.linkButton_CLASS(href="/cultural")
-				div.imgCont_CLASS
-					img.imgCel_CLASS(src="projetos/00002/thumbnail.png", alt="")
+	section(style="display: grid; padding:1em; grid-template-columns:70% 30%")
+		div(style="grid-column:1/2")
+			div(class=" contCel_CLASS")
 				p.contProj_CLASS CENTRO CUTURAL
+				a.imgCont_CLASS.linkButton_CLASS(href="/cultural")
+					img.imgCel_CLASS(src="projetos/00002/thumbnail.png", alt="")
+				div(style="grid-row:3/4")
+					p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
+					p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-			div(class="infoCel_CLASS contCel_CLASS")
-				a.linkButton_CLASS(href="/edificil")
-				div.imgCont_CLASS
-					img.imgCel_CLASS(src="projetos/00003/thumbnail.png", alt="")
+			div(class=" contCel_CLASS")
 				p.contProj_CLASS VILA VIEIRA
+				a.imgCont_CLASS.linkButton_CLASS(href="/edificil")
+					img.imgCel_CLASS(src="projetos/00003/thumbnail.png", alt="")
+				div(style="grid-row:3/4")
+					p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
+					p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-			div(class="infoCel_CLASS contCel_CLASS")
-				a.linkButton_CLASS(href="/hospital")
-				div.imgCont_CLASS
-					img.imgCel_CLASS(src="projetos/00004/thumbnail.jpg", alt="")
+			div(class=" contCel_CLASS")
 				p.contProj_CLASS PROJETO HOSPITALAR
+				a.imgCont_CLASS.linkButton_CLASS(href="/hospital")
+					img.imgCel_CLASS(src="projetos/00004/thumbnail.jpg", alt="")
+				div(style="grid-row:3/4")
+					p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
+					p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-			div(class="infoCel_CLASS contCel_CLASS")
-				a.linkButton_CLASS(href="/loteamento")
-				div.imgCont_CLASS
-					img.imgCel_CLASS(src="projetos/00005/thumbnail.png", alt="")
+			div(class=" contCel_CLASS")
 				p.contProj_CLASS LOTEAMENTO
+				a.imgCont_CLASS.linkButton_CLASS(href="/loteamento")
+					img.imgCel_CLASS(src="projetos/00005/thumbnail.png", alt="")
+				div(style="grid-row:3/4")
+					p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
+					p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-			div(class="infoCel_CLASS contCel_CLASS")
-				a.linkButton_CLASS(href="/estudo_paisagismo")
-				div.imgCont_CLASS
-					img.imgCel_CLASS(src="projetos/00006/thumbnail.jpg", alt="")
+			div(class=" contCel_CLASS")
 				p.contProj_CLASS PAISAGISMO HOSPITALAR
+				a.imgCont_CLASS.linkButton_CLASS(href="/estudo_paisagismo")
+					img.imgCel_CLASS(src="projetos/00006/thumbnail.jpg", alt="")
+				div(style="grid-row:3/4")
+					p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
+					p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
 				p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
+		div(style="grid-column:2/3") PARCEIROS
+			div(style="height: 50em;width: 100%;background-color: lightgray;border-radius:1em;padding: .5em 3em auto 0;")

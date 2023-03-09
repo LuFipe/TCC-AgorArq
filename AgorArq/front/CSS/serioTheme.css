@@ -37,7 +37,7 @@ body{
 	color: var(--font-color);
 }
 header{
-	background-color:var(--main-color);
+	background-color:var(--submain-color);
 }
 
 main{
@@ -69,6 +69,10 @@ button:focus{
 
 .cabecallho_CLASS{
 	color: var(--main-color)
+}
+
+.contCel_CLASS{
+	box-shadow: var(--submain-color) .1em .1em .5em;
 }
 
 /*ID*/

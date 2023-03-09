@@ -21,7 +21,6 @@ rota.get('/projetos',async(req,res,next)=>{
 	for(let i =0; i<metadados.length;i++){
 		metadados[i]['nome'] = metadados[i]['nome'].toUpperCase();
 	}
-
 	res.render("projetos",{"CELULA":metadados})
 })
 

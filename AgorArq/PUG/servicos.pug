@@ -14,13 +14,13 @@ block conteudo
 			if ((i%2)==0)
 				div.servCel_CLASS.straightCel_CLASS
 					div.imgServ_CLASS.strImg_CLASS
-						img.imgCel_CLASS(src="http://127.0.0.1:3000/imagens/"+serv['foto']+"."+serv['ext'], alt="SEM FOTO DE PERFIL")
+						img.imgCel_CLASS(src="../imagens/"+serv['foto']+"."+serv['ext'], alt="SEM FOTO DE PERFIL")
 					h1.titleCel_CLASS(style="text-align:center; padding: 0 20% 0 20%")=serv['servico']
 					p.descPar_CLASS=serv['introducao']
 			else
 				div.servCel_CLASS.reverseCel_CLASS
 					div.imgServ_CLASS.revImg_CLASS
-						img.imgCel_CLASS(src="http://127.0.0.1:3000/imagens/"+serv['foto']+"."+serv['ext'], alt="SEM FOTO DE PERFIL")
+						img.imgCel_CLASS(src="../imagens/"+serv['foto']+"."+serv['ext'], alt="SEM FOTO DE PERFIL")
 					h1.titleCel_CLASS(style="text-align:center")=serv['servico']
 					p.descPar_CLASS=serv['introducao']
 	
