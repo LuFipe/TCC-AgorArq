@@ -1,0 +1,24 @@
+extend layout_main
+
+block titulo
+	h1(style="color:black; text-align:center; margin:0 ;font-size:3em; height:3em") ARTIGOS
+
+block conteudo
+	for i in [1,2,3,4,5,6,7,8,9,10]
+		div(style="margin:0 auto 2em; height:20em; width:90%; display: grid; grid-template-columns:30% 60%;grid-template-rows:20% 30% 50%; border-radius:.2em; box-shadow:0.1em .1em .5em rgba(1,1,1,.7)")
+			img(src="", alt="SEM IMAGEM", style="grid-column:1/2;grid-row:1/4; background-color: rgba(1,1,1,.6)")
+			h1(style="padding-left:1em ;grid-column:2/3; grid-row:1/2") TITULO GRANDE
+			div.metaDados_CLASS(style="padding-left: 1em; grid-column:2/3; grid-row:2/3")
+				p.detProj_CLASS 
+					img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>LOCAL:</strong> Juazeiro do Norte
+				p.detProj_CLASS
+					img(src="../icones/DATA.svg", alt="n tah aqui", style="height:1.5em") 
+					<strong>DATA:</strong> 01/01/2023
+				p.detProj_CLASS
+					img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>ESCRITORIO:</strong> 01/01/2023
+				p.detProj_CLASS
+					img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>METRAGEM:</strong> 01/01/2023
+			p(style="grid-column:2/3;grid-row:3/4") Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nobis ut est iusto beatae repellendus provident ad, repudiandae hic laudantium ullam mollitia dignissimos ipsa explicabo maiores numquam corrupti. Excepturi, enim.

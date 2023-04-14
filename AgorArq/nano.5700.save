@@ -1,0 +1,26 @@
+Resumo:
+Introdução:
+A construção civil é uma das indústrias mais importantes da economia mundial, mas é também responsável por uma grande parcela do consumo de energia e emissão de CO2. Diante disso, é crucial que sejam desenvolvidas metodologias que possibilitem a realização de estudos energéticos ainda em fase de design, para que se possa minimizar os impactos ambientais causados pelas construções.
+
+No entanto, o método tradicional de avaliação energética manual é impreciso, pode gerar redundâncias e erros de execução. Nesse contexto, a metodologia BIM (Building Information Modeling) surge como uma solução para integrar e coordenar informações acerca da geometria, topologia e sistemas mecânicos de uma construção. Por meio do BIM, é possível obter uma visão tridimensional da construção, o que permite que os projetos sejam visualizados com maior precisão e os problemas sejam detectados antecipadamente.
+
+Apesar das vantagens oferecidas pela metodologia BIM, a interoperabilidade entre ela e a metodologia BEM (Building Energy Modeling) ainda é um desafio a ser enfrentado. Enquanto o BIM é a representação de uma construção integrada a um banco de dados de informação coordenada, o BEM é a representação de modelos energéticos aplicados ao cálculo de trocas energéticas da construção com o entorno. Isso significa que o BIM contém uma grande parte dos dados necessários para a realização do estudo energético, mas é preciso que haja uma integração entre as duas metodologias para que os resultados sejam precisos.
+
+Entre as dificuldades enfrentadas na interoperabilidade entre BIM e BEM, podemos citar a simplificação imperfeita entre as metodologias, a informação insuficiente e a incompatibilidade da troca de dados. Isso pode acarretar em altas chances de perda de dados, inconsistência, falta de precisão e vários outros problemas.
+
+Diante desse contexto, o objetivo deste artigo bibliométrico é analisar as pesquisas científicas que abordam a interoperabilidade entre BIM e BEM, destacando os avanços e desafios existentes nessa área. Serão abordados aspectos como os principais formatos de interoperabilidade entre os programas BIM e BEM, IFC (Industry Foundation Class) e o gbXML (Green Building XML), e as etapas do processo de implementação BIM-EPA=BEM, que incluem simplificação, extração, criação do formato a ser simulado e simulação.
+
+Com essa análise, espera-se contribuir para o avanço do conhecimento na área de interoperabilidade entre BIM e BEM, possibilitando a criação de soluções mais precisas e eficazes para a realização de estudos energéticos em construções.
+
+Metodologia:
+O estudo bibliométrico realizado teve como objetivo analisar a produção científica sobre a interoperabilidade entre as metodologias BIM e BEM. Para isso, utilizamos a ferramenta bibliométrica Bibliometrix juntamente com o aplicativo Biblioshiny, que é uma interface gráfica interativa para a análise de dados bibliométricos.
+
+Para coleta dos dados, foi utilizado o banco de dados Web of Science devido à sua reputação e reconhecimento na área científica, bem como sua compatibilidade com a ferramenta Bibliometrix, o que otimizou o processo de coleta de dados.
+
+A coleta de artigos foi realizada em fevereiro de 2023, utilizando vários conjuntos de palavras-chave e refinando os termos e filtros para obter um número adequado de artigos para análise. Os termos utilizados foram "ENERGY INFORMATION MODELING INTEROPERABILITY" com os seguintes filtros: "DESIGN & MANUFACTURING", "SUSTENTABILITY SCIENCE", "KNOWLEDGE ENGINEERING & REORESENTATION", "SOFTWARE ENGINEERING", "MANAGEMENT", "COMPUTER VISION & GRAPHICS", "INTELLIGENCE & MACHINE LEARNING", "CLIMATE CHANGE", "RESEARCH & MANEGEMENT SCIENCE" e "CONCRETE SCIENCE".
+
+Como resultado, foram obtidos 195 documentos, dos quais 678 autores contribuíram para esses artigos. Além disso, foi observado que 27,69% dos artigos tinham co-autoria internacional, indicando que a pesquisa nessa área é realizada em todo o mundo. O período de tempo dos artigos analisados varia de 2002 até 2023, evidenciando que a pesquisa sobre interoperabilidade entre BIM e BEM é uma área em crescimento e evolução.
+
+A análise bibliométrica permitiu uma análise mais ampla e abrangente da produção científica sobre interoperabilidade entre as metodologias BIM e BEM, oferecendo insights valiosos para a compreensão da evolução e tendências na área.
+
+EI Compendex

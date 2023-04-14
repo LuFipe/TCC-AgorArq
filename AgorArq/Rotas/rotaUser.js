@@ -5,9 +5,11 @@ const rota = express.Router();
 
 
 rota.get('/',(req,res,next)=>{
-	res.render("conteudo");
+	res.redirect('/home');
 });
-
+rota.get('/home',(req,res,next)=>{
+	res.render("HOME");
+});
 // rota.get('/projetos',(req,res,next)=>{
 // 	res.render("PA")
 // })
@@ -21,7 +23,11 @@ rota.get('/projetos',async(req,res,next)=>{
 	for(let i =0; i<metadados.length;i++){
 		metadados[i]['nome'] = metadados[i]['nome'].toUpperCase();
 	}
-	res.render("projetos",{"CELULA":metadados})
+	res.render("PROJETOS",{"CELULA":metadados})
+})
+
+rota.get('/artigos',(req,res,next)=>{
+	res.render('artigos')
 })
 
 rota.post('/videoTeste',async(req,res,next)=>{
@@ -48,21 +54,6 @@ rota.post('/videoTeste',async(req,res,next)=>{
 
 rota.get('/servicos',async(req,res,next)=>{
 	
-	//RECUPERANDO INFORMAÇÕES DO ESCRITORIO
-	/*let lista_Escritorio = await ler.lerEsc();
-	lista_Escritorio = JSON.stringify(lista_Escritorio)
-	lista_Escritorio = JSON.parse(lista_Escritorio)
-	for(let i=0;i<lista_Escritorio.length;i++){
-		let pSobre = lista_Escritorio[i].sobre.split('\n');
-		let pValor = lista_Escritorio[i].valor.split('\n');
-		let pMissao = lista_Escritorio[i].missao.split('\n');
-		let pVisao = lista_Escritorio[i].visao.split('\n');
-		lista_Escritorio[i].parSobre = pSobre;
-		lista_Escritorio[i].parValor = pValor;
-		lista_Escritorio[i].parMissao = pMissao;
-		lista_Escritorio[i].parVisao = pVisao;
-	}*/
-
 	//RECUPERANDO INFORMAÇÕES DE SERVIÇOS
 	lista_Servico = await ler.lerServ();
 	lista_Servico = JSON.stringify(lista_Servico);
@@ -93,7 +84,7 @@ rota.get('/servicos',async(req,res,next)=>{
 		}
 	}
 
-	res.render("servicos",{/*'ESCRITORIO':lista_Escritorio,*/'SERVICOS':lista_Servico})
+	res.render("SERVICOS",{'SERVICOS':lista_Servico})
 })
 
 rota.get('/sobre',async(req,res,next)=>{
@@ -113,7 +104,28 @@ rota.get('/sobre',async(req,res,next)=>{
 		lista_Escritorio[i].parVisao = pVisao;
 	}
 
-	res.render("sobre",{'ESCRITORIO':lista_Escritorio})
+	//RECUPERANDO INFORMAÇÕES DAS IMAGENS SOBRE
+	let lista_Fotos = await ler.lerImgOnde('sobre');
+	lista_Fotos = JSON.stringify(lista_Fotos);
+	lista_Fotos = JSON.parse(lista_Fotos);
+
+	//RELACIONANDO IMAGEM A SOBRE
+	for(i=0; i<lista_Escritorio.length;i++){
+		for(j=0;j<lista_Fotos.length;j++){
+			if(lista_Fotos[j].nome=='missao'){
+				lista_Escritorio[i].fotoMissaoExt=lista_Fotos[j].extensao
+			}else if(lista_Fotos[j].nome=='visao'){
+				lista_Escritorio[i].fotoVisaoExt=lista_Fotos[j].extensao
+			}else if(lista_Fotos[j].nome=='valor'){
+				lista_Escritorio[i].fotoValorExt=lista_Fotos[j].extensao
+			}
+		}
+
+	}
+
+	console.log(lista_Escritorio);
+	
+	res.render("sobre",{'ESCRITORIO':lista_Escritorio,'SOB':''})
 })
 
 rota.get('/estudantes',async(req,res,next)=>{

@@ -62,6 +62,8 @@
 	display: flex;
 	max-width: 100%;
 	max-height: 100%;
+	border-radius: .15em;
+	box-shadow: 0.1em .1em .5em rgba(1,1,1,.7);
 	grid-row: 2 / 3;
 	align-items: center;
 	align-content: center;
@@ -70,10 +72,12 @@
 
 .contProj_CLASS{
 	grid-row: 1 / 2;
+	margin-top:0;
 }
 
 .bioProj_CLASS{
 	grid-row: 4 / 5;
+	margin-top: .7em;
 }
 
 .linkButton_CLASS{
@@ -85,10 +89,10 @@
 .contCel_CLASS{	
 	width: 90%;
 	height: 40em;
-	margin-top: 1em;
-	margin-bottom: 1em;
+	padding:0 1em;
+	margin-bottom: 2em;
 	display:grid;
-	grid-template-rows:5% 60% 15% 20%;
+	grid-template-rows:10% 60% 10% 20%;
 	border-radius: .2em;
 	flex-shrink: 0;
 	overflow: hidden;

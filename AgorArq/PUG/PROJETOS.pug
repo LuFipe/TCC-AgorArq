@@ -1,15 +1,7 @@
-extend layout 
+extend layout_main
 
-block CABECALHO
-	div(style="background:gray; height:2em; position:fixed; width:100%; opacity:.5") teste div de cabeçalho
-	img(src="../imagens/logo.jpeg", alt="não veio", style="height:15em; margin: 5em auto 1em")
-	h1.cabecallho_CLASS PROJETOS
-	section.latmenu_CLASS#navi_ID
-		a.mainButton_CLASS(href="/") CONTEUDO
-		a.mainButton_CLASS(href="/projetos") PROJETOS
-		a.mainButton_CLASS(href="/servicos") SERVIÇOS
-		a.mainButton_CLASS(href="/estudantes") EQUIPE
-		a.mainButton_CLASS(href="/sobre") SOBRE
+block titulo
+	h1(style="color:black; text-align:center; margin:0; font-size:3em; height: 3em") PROJETOS
 
 
 block conteudo
@@ -19,23 +11,44 @@ block conteudo
 				input(type="hidden", name="id_NAME", id="id_ID", value=celulas['id'])
 				input(type="submit", class="projButton_CLASS", style="opacity:0")
 				div.imgProj_CLASS
-				svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:1em; height:1em;")
-					path(d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192h80v56H48V192zm0 104h80v64H48V296zm128 0h96v64H176V296zm144 0h80v64H320V296zm80-48H320V192h80v56zm0 160v40c0 8.8-7.2 16-16 16H320V408h80zm-128 0v56H176V408h96zm-144 0v56H64c-8.8 0-16-7.2-16-16V408h80zM272 248H176V192h96v56z")
-				i(class="fa-regular fa-calendar-days")
-				p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
+				div.metaDados_CLASS
+					p.detProj_CLASS 
+						img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+						<strong>LOCAL:</strong> Juazeiro do Norte
+					p.detProj_CLASS
+						img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
+						<strong>ESCRITORIO:</strong> 01/01/2023
+					p.detProj_CLASS
+						img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
+						<strong>METRAGEM:</strong> 01/01/2023
 				h3.tituloProj_CLASS=celulas['nome']
 		div(class="infoCel_CLASS projCel_CLASS")
 			a.projButton_CLASS(href="/cultural")
 			div.imgProj_CLASS(style="background-image: url('/projetos/00002/thumbnail.png');")
-			p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
-			h3.tituloProj_CLASS CENTRO CUTURAL
+			div.metaDados_CLASS
+				p.detProj_CLASS 
+					img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>LOCAL:</strong> Juazeiro do Norte
+				p.detProj_CLASS
+					img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>ESCRITORIO:</strong> 01/01/2023
+				p.detProj_CLASS
+					img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>METRAGEM:</strong> 01/01/2023
+			h3.tituloProj_CLASS CENTRO CUTURAL PARA O BAIRRO PLANALTO
 		div(class="infoCel_CLASS projCel_CLASS")
 			a.projButton_CLASS(href="/edificil")
 			div.imgProj_CLASS(style="background-image: url('/projetos/00003/thumbnail.png');")
-			p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
+			div.metaDados_CLASS
+				p.detProj_CLASS 
+					img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>LOCAL:</strong> Juazeiro do Norte
+				p.detProj_CLASS
+					img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>ESCRITORIO:</strong> 01/01/2023
+				p.detProj_CLASS
+					img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
+					<strong>METRAGEM:</strong> 01/01/2023
 			h3.tituloProj_CLASS VILA VIEIRA
 		div(class="infoCel_CLASS projCel_CLASS")
 			a.projButton_CLASS(href="/hospital")

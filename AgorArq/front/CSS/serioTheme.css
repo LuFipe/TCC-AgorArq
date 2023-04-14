@@ -71,11 +71,16 @@ button:focus{
 	color: var(--main-color)
 }
 
-.contCel_CLASS{
+/* .contCel_CLASS{
 	box-shadow: var(--submain-color) .1em .1em .5em;
-}
+} */
 
 /*ID*/
+
+section#mainMenu_ID{
+	background: linear-gradient(180deg, grey, white);
+
+}
 
 section#feed_ID{
 	color: var(--bg-color);

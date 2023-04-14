@@ -101,17 +101,15 @@ button:hover{
 	height: 1.5em;
 }
 
-.mainMenu_CLASS{
-	display: grid;
-}
-
 .imgCel_CLASS{
 	min-height: 100%;
 	min-width: 100%;
+	box-shadow: 0 0 .3em rgba(1,1,1,.5);
 	object-fit: cover;
 	margin: auto;
 	grid-row: 1 / 3;
-	background-color: rgba(200,200,200,.5);
+	/* background-color: rgba(200,200,200,.5); */
+
 }
 
 .imgPerf_CLASS{
@@ -127,7 +125,34 @@ button:hover{
 	margin:0
 }
 
+.detProj_CLASS{
+	font-size: .6em;
+	font-family: var(--fontAH23);
+	margin: auto 0;
+	padding-left: 0;
+	color: darkgray;
+	text-indent: 0;
+	align-items: center;
+	display:flex;
+	flex-wrap: wrap;
+	/* display:grid;
+	grid-template-columns: 2em 7em 10em; */
+}
+
+.imgIcon_CLASS{
+	height:70%;
+	padding: .31em
+}
+
+.metaDados_CLASS{
+	margin-top:.5em
+}
 /*ID*/
+
+section#mainMenu_ID{
+	display: grid;
+	height: 70vh;
+}
 
 section#feed_ID{
 	width: 83vw;

@@ -1,0 +1,48 @@
+doctype html
+html(lang="pt-br")
+	head
+		meta(charset="ISO-8859-1")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="/CSS/mainStyle.css")
+		link(rel="stylesheet", href="/CSS/serioTheme.css")
+		link(rel="stylesheet", href="/CSS/conteudo.css")
+		link(rel="stylesheet", href="/CSS/escritorio.css")
+		link(rel="stylesheet", href="/CSS/projetos.css")
+		link(rel="stylesheet", href="/CSS/apresentacao.css")
+		link(rel="stylesheet", href="/CSS/servicos.css")
+		link(rel="stylesheet", href="/CSS/sobre.css")
+		title AgorArq 
+	body
+		header
+			section#mainMenu_ID
+				div(style="position:fixed; height:2em; width: 100vw ;background-color: rgba(255,255,255,0.8); display:flex; flex-wrap:wrap; z-index:2; color:black; align-items: center")
+					img.imgIcon_CLASS(src="../icones/LOGO.svg", alt="", style="margin-right: 5em")
+					img.imgIcon_CLASS(src="../icones/LOCAL.svg", alt="")
+					p(style="margin:.5%; margin-right:10em; padding:0; text-align:left; text-indent:0; font-size:.8em") RUA TAL BAIRRO TAL NUMERO TAL
+					div(style="height:100%;width: auto; display:flex; flex-wrap:wrap;align-items:center")
+						a(href="", style="height:100%;align-items: center")
+							img.imgIcon_CLASS(src="../icones/FACEBOOK.svg", alt="Num foi")
+						a(href="", style="height:100%;align-items: center")
+							img.imgIcon_CLASS(src="../icones/INSTAGRAM.svg", alt="")
+						a(href="", style="height:100%;align-items: center")
+							img.imgIcon_CLASS(src="../icones/TWITTER.svg", alt="")
+						img.imgIcon_CLASS(src="../icones/WHATSAPP.svg", alt="", style="color: white")
+						p(style="padding:0; text-align:left; text-indent:0; ") #{'(00) 90000-00'}
+					div(style="height:100% ; display:flex; flex-wrap:wrap; margin:auto; width:30em")
+						a(href="/home", style="margin:auto") CONTEUDO
+						a(href="/projetos", style="margin:auto") PROJETO
+						a(href="/artigos", style="margin:auto") ARTIGOS
+						a(href="/servicos", style="margin:auto") SERVIÇOS
+						a(href="/estudantes", style="margin:auto") EQUIPE
+						a(href="/sobre", style="margin:auto") SOBRE
+					a(href="/adm", style="height:100%")
+							img(src="../icones/USER.svg", alt="Num foi", style="height:100%; margin-right:1em")
+				img(src="../icones/LOGO.svg", alt="NÂO TEM IMAGEM", style="height: 20em; margin: 3em auto auto auto")
+				block titulo
+
+		main
+			section#feed_ID
+				//div#conteudo_ID
+				block conteudo
+		footer

@@ -23,8 +23,8 @@
 }
 
 .projCel_CLASS{
-	width: 15em;
-	height: 14em;
+	width: 24em;
+	height: 24em;
 	margin: 1em;
 	/*background-color: rgb(255, 255, 33);
 	*/display: block;
@@ -34,10 +34,11 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+	box-shadow: 0 0 .3em rgba(1,1,1,.5);
 	display: flex;
 	max-width: 100%;
 	height: 70%;
-	border-radius: .5em;
+	border-radius: .1em;
 	align-items: center;
 	align-content: center;
 	overflow: hidden;
@@ -46,13 +47,4 @@
 .tituloProj_CLASS{
 	margin: .2em auto .2em auto;
 	padding-left: 0;
-}
-
-.detProj_CLASS{
-	font-size: .7em;
-	font-family: var(--fontAH23);
-	margin: 0;
-	padding-left: 0;
-	color: darkgray;
-	text-indent: 0;
 }

@@ -18,4 +18,10 @@ tentarler('YT_Financiamento_01')
 //ler.lerMetaOnde('YT_Financiamento_01')
 //atualizar.atualizarMeta('oi', 'nome atualizado', 'tipo atualizado','introducao atualizada', 'descricao atualizada');
 //deletar.deleteMeta('hiiii')
-atualizar.atualizarImg(8,'proj','servico','jpg',6)
+//atualizar.atualizarImg(8,'proj','servico','jpg',6)
+/* criar.criarImg('missao','sobre','.svg','1')
+criar.criarImg('visao','sobre','.svg','1')
+criar.criarImg('valor','sobre','.svg','1') */
+atualizar.atualizarImg(9,'visao','sobre','svg','1')
+atualizar.atualizarImg(10,'valor','sobre','svg','1')
+atualizar.atualizarImg(11,'missao','sobre','svg','1')

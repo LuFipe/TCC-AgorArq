@@ -1,21 +1,30 @@
-extend layout 
+extend layout_main
 
-block CABECALHO
+block titulo
 	div.headImg_CLASS(style="background-image: url(imagens/iStock-936384788.jpg);")
-		h1.cabecallho_CLASS SOBRE
+		h1.cabecallho_CLASS ESCRITORIO
+		div(style="width:60%; margin:auto")
+			for parSob in ESCRITORIO[0]['parSobre']
+				p(style="text-align:center")=parSob
 
 block conteudo
 	section(style="display:grid; height:100%")
-		h1 ESCRITORIO
-		hr
-		for parSob in ESCRITORIO[0]['parSobre']
-			p=parSob
-		h2 MISSÃO
-		for parMis in ESCRITORIO[0]['parMissao']
-			p=parMis
-		h2 VISÃO
-		for parVis in ESCRITORIO[0]['parVisao']
-			p=parVis
-		h2 VALORES
-		for parVal in ESCRITORIO[0]['parValor']
-			p=parVal
+		
+		div.sobreCel_CLASS.strSobDiv_CLASS
+			img.imgSOBRE_CLASS(src="../imagens/missao"+"."+ESCRITORIO[0]['fotoMissaoExt'], alt="")
+			h2(style="grid-row:1/2") MISSÃO
+			div(style="grid-row:2/3")
+				for parMis in ESCRITORIO[0]['parMissao']
+					p=parMis
+		div.sobreCel_CLASS.revSobDiv_CLASS
+			img.imgSOBRE_CLASS(src="../imagens/visao"+"."+ESCRITORIO[0]['fotoVisaoExt'], alt="", style="grid-column:2/3")
+			h2(style="grid-row:1/2; text-align:end") VISÃO
+			div(style="grid-row:2/3")
+				for parVis in ESCRITORIO[0]['parVisao']
+					p=parVis
+		div.sobreCel_CLASS.strSobDiv_CLASS
+			img.imgSOBRE_CLASS(src="../imagens/valor"+"."+ESCRITORIO[0]['fotoValorExt'], alt="")
+			h2(style="grid-row:1/2") VALORES
+			div(style="grid-row:2/3")
+				for parVal in ESCRITORIO[0]['parValor']
+					p=parVal

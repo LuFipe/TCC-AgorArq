@@ -1,44 +1,70 @@
 .servCel_CLASS{
 	width: 100%;
-	height: 30em;
-	margin: 2em auto 2em auto;
+	height: auto;
+	padding: .5em;
 	display:grid;
 	flex-shrink: 0;
 	overflow: hidden;
-	grid-template-rows: 20% 80%;
+	grid-template-columns:  50% 50%;
+
 }
 
-.reverseCel_CLASS{
-	grid-template-columns:  66% 34%;
+/* .reverseCel_CLASS{
 	background-image: linear-gradient(-90deg, black, white);
 }
 
 .straightCel_CLASS{
-	grid-template-columns: 34% 66%;
 	background-image: linear-gradient(90deg, black, white);
+} */
+
+.strDiv_CLASS{
+	grid-column: 1 / 2;
+	display: grid;
+	grid-template-rows: 20% 40% 40%;
+	width: 100%;
+	height:35em;
+	box-shadow: 0 0 .3em rgba(1,1,1,.5);
+	border-radius: 15em;
+}
+
+.revDiv_CLASS{
+	grid-column: 2/3;
+	display: grid;
+	grid-template-rows: 20% 40% 40%;
+	width: 100%;
+	height:35em;
+	box-shadow: 0 0 .3em rgba(1,1,1,.5);
+	border-radius: 15em;
 }
 
 .imgServ_CLASS{
 	display: flex;
 	max-width: 100%;
 	max-height: 100%;
-	grid-row: 1 / 3;
 	border-radius:2em;
 	align-items: center;
 	align-content: center;
 	overflow: hidden;
 }
 
-.strImg_CLASS{
-	grid-column: 1 / 2;
+.posImgServ_CLASS{
+	grid-row:2/3;
+	min-width:0;
+	height: 100%;
+	box-shadow: 0 0 0 rgba(0,0,0,0)
 }
 
-.revImg_CLASS{
-	grid-column: 2 / 3;
+.posTitle_CLASS{
+	padding: 0 8em;
+	grid-row:1/2;
+}
+
+.posDesc_CLASS{
+	grid-row:3/4;
 }
 
 .descPar_CLASS{
-	padding: 0 15%;
+	padding: 0 4em;
 	text-align: center;
 	font-size: 1.1em;
 }

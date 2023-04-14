@@ -1,0 +1,51 @@
+extend layout_main
+
+block titulo
+	h1(style="color:black; text-align:center; margin:0; font-size:3em; height:3em") HOME
+
+block conteudo
+	section#manchete_ID
+		div.manchete_CLASS(style="width: 100%; height: 100%; grid-row-start: 1; grid-row-end: 4;")
+			a.icone_CLASS.manchButton_CLASS(href="/interiores", style="grid-template-rows: auto 3em 10em; height:93.5%; width:93.5%")
+				h1.manchTitulo_CLASS Projeto de Interiores 
+				h2.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
+			img(src="projetos/00007/thumbnail.png", alt="SEM IMAGEM", class="icone_CLASS manchImg_CLASS", style="height:93.5%; width:93.5%")
+		div.manchete_CLASS
+			a.icone_CLASS.manchButton_CLASS(href="/washington")
+				h2.manchTitulo_CLASS Carta de Washington 
+				h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
+			img(src="trabalhos/00008/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
+		div.manchete_CLASS
+			a.icone_CLASS.manchButton_CLASS(href="/catalogo")
+				h2.manchTitulo_CLASS Catálogo de Vegetações 
+				h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
+			img(src="trabalhos/00009/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
+		div.manchete_CLASS
+			a.icone_CLASS.manchButton_CLASS(href="/estudo_paisagismo")
+				h2.manchTitulo_CLASS Paisagismo 
+				h3.manchBio_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi amet rerum ab magnam iusto eius nostrum similique autem maxime incidunt, dolor enim molestias possimus itaque eligendi natus cum ullam.
+			img(src="trabalhos/00010/thumbnail.png", alt="", class="icone_CLASS manchImg_CLASS")
+	hr
+	section(style="display: grid; padding:1em; grid-template-columns:70% 30%")
+		div(style="grid-column:1/2")
+			for i in [1,2,3,4,5,6,7,8,9,10]
+				div(class=" contCel_CLASS")
+					h1.contProj_CLASS TITULO GRANDE E AUTO EXPLICATIVO
+					a.imgCont_CLASS.linkButton_CLASS(href="")
+						img.imgCel_CLASS(src="", alt="", style="background-color: rgba(1,1,1,.6)")
+					div.metaDados_CLASS(style="grid-row:3/4")
+						p.detProj_CLASS 
+							img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+							<strong>LOCAL:</strong> Juazeiro do Norte
+						p.detProj_CLASS
+							img(src="../icones/DATA.svg", alt="n tah aqui", style="height:1.5em") 
+							<strong>DATA:</strong> 01/01/2023
+						p.detProj_CLASS
+							img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
+							<strong>ESCRITORIO:</strong> 01/01/2023
+						p.detProj_CLASS
+							img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
+							<strong>METRAGEM:</strong> 01/01/2023
+					p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
+		div(style="grid-column:2/3") PARCEIROS
+			div(style="height: 50em;width: 100%;background-color: lightgray;border-radius:1em;padding: .5em 3em auto 0;")
