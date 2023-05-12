@@ -52,10 +52,6 @@ module.exports.projetos = db.define('projetos',{
 	id_ref:{
 		type: Sequelize.STRING,
 		allowNull: false
-	},
-	caminho:{
-		type: Sequelize.STRING,
-		allowNull: false
 	}
 },
 {freezeTableName: true}
@@ -84,9 +80,8 @@ module.exports.proj_memb = db.define('proj_memb',{
 //DEFINIÇÃO DA TABELA ARTIGO
 module.exports.artigos = db.define('artigo',{
 	id:{
-		type: Sequelize.INTEGER,
+		type: Sequelize.STRING,
 		primaryKey: true,
-		autoIncrement: true,
 		allowNull: false
 	},
 	escritor_id:{
@@ -184,6 +179,10 @@ module.exports.imagens = db.define('imagens',{
 		type: Sequelize.STRING,
 		allowNull:false
 	},
+	thumb:{
+		type: Sequelize.BOOLEAN,
+		allowNull:false
+	},
 	id_ref:{
 		type: Sequelize.STRING,
 		allowNull: false
@@ -195,9 +194,8 @@ module.exports.imagens = db.define('imagens',{
 //DEFINIÇÃO DA TABELA SERVIÇOS
 module.exports.servicos = db.define('servicos',{
 	id:{
-		type: Sequelize.INTEGER,
+		type: Sequelize.STRING,
 		primaryKey: true,
-		autoIncrement: true,
 		allowNull: false
 		},
 	servico:{

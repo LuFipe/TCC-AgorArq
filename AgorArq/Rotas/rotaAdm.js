@@ -15,7 +15,7 @@ const storageImagem = multer.diskStorage({
 		cb(null, path.join(__dirname,"../front/imagens"))
 	},
 	filename: (req,file,cb)=>{
-		let nm = req.body.image_name;
+		let nm = req.body.ID+"_"+req.body.SUBNOME;
 		let nome_comp = file.originalname;
 		let nome = nome_comp.split('.');
 
@@ -86,49 +86,95 @@ rota.post('/addMeta',(req,res,next)=>{
 	res.send("Check Console para dados do Meta")
 })
 
-rota.get('/addMember',(req,res,next)=>{
-	res.render("add_Membros.pug");
-});
+rota.post('/addPROJETOS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+	let escri = req.body.ESCRITORIO;
+	let metra = req.body.METRAGEM;
+	let titul = req.body.TITULO;
+	let intro = req.body.INTRODUCAO;
+	let descr = req.body.DESCRICAO;
+	let id = req.body.ID;
+	let subnm = req.body.SUBNOME;
+	let natur = "projeto";
 
-rota.post('/addMember',(req,res,next)=>{
-	let ident = req.body.ID;
-	let nm = req.body.Nome;
-	let form = req.body.Formacao;
-	let cg = req.body.Cargo;
-
-	console.log("\n\n Entrando com o valor do body: \n")
-	console.log(ident)
-	console.log(nm)
-	console.log(form)
-	console.log(cg)
-	criar.criarMemb(ident, nm, form, cg);
-	res.send("Membro adicionado com sucesso")
+	let nome_comp = req.file.originalname;
+	let nome = nome_comp.split('.');
+	let extens = nome[nome.length-1]
+	
+	console
+	criar.criarMeta(id,titul, natur, intro, descr);
+	criar.criarProj(escri,metra, id)
+	criar.criarImg(id+"_"+subnm,extens,true,id)
+	res.redirect('/adm');
 })
 
-rota.get('/addServ',(req,res,next)=>{
-	res.render('add_Servico')
+rota.post('/addARTIGOS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+	let tipo  = req.body.TIPO;
+	let assun = req.body.ASSUNTO;
+	let titul = req.body.TITULO;
+	let intro = req.body.INTRODUCAO;
+	let descr = req.body.DESCRICAO;
+	let id = req.body.ID;
+	let autor = req.body.ID_AUTOR;
+	let subnm = req.body.SUBNOME;
+	let natur = "artigo";
+
+	let img_nm = id+"_"+subnm;
+	let nome_comp = req.file.originalname;
+	let nome = nome_comp.split('.');
+	let extens = nome[nome.length-1]
+	
+	console
+	criar.criarMeta(id,titul, natur, intro, descr);
+	criar.criarArt(id,assun,tipo,autor)
+	criar.criarImg(img_nm,natur,extens,true,id)
+	res.redirect('/adm');
 })
 
-rota.post('/addServ',(req,res,next)=>{
-	let servico = req.body.servico;
-	let introducao = req.body.intro;
-	let descricao = req.body.descricao;
-	console.log("servico: ")
-	console.log(servico)
-	console.log("\nintroducao: ")
-	console.log(introducao)
-	console.log("\nDescricao: ")
-	console.log(descricao)
+rota.post('/addLINKS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+	let site  = req.body.SITE;
+	let link  = req.body.LINK;
+	let titul = req.body.TITULO;
+	let intro = req.body.INTRODUCAO;
+	let descr = req.body.DESCRICAO;
+	let id = req.body.ID;
+	let subnm = req.body.SUBNOME;
+	let natur = "link";
 
-	criar.criarServ(servico, introducao, descricao)
-	res.send("Check Console")
+	let img_nm = id+"_"+subnm;
+	let nome_comp = req.file.originalname;
+	let nome = nome_comp.split('.');
+	let extens = nome[nome.length-1]
+	
+	console
+	criar.criarMeta(id,titul, natur, intro, descr);
+	criar.criarLink(site,link, id)
+	criar.criarImg(img_nm,natur,extens,true,id)
+	res.redirect('/adm');
 })
 
-rota.get('/addEscrit',(req,res,next)=>{
-	res.render('add_Escritorio')
+rota.post('/addMEMBROS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+	let cargo = req.body.CARGO;
+	let forma = req.body.FORMACAO;
+	let name  = req.body.TITULO;
+	let intro = req.body.INTRODUCAO;
+	let descr = req.body.DESCRICAO;
+	let id = req.body.ID;
+	let subnm = req.body.SUBNOME;
+	let natur = "membro";
+
+	let img_nm = id+"_"+subnm;
+	let nome_comp = req.file.originalname;
+	let nome = nome_comp.split('.');
+	let extens = nome[nome.length-1]
+	
+	console
+	criar.criarMeta(id,name, natur, intro, descr);
+	criar.criarMemb(id, name,forma,cargo)
+	criar.criarImg(img_nm,natur,extens,true,id)
+	res.redirect('/adm');
 })
 
-rota.post('/addEscrit',(req,res,next)=>{
+rota.post('/addESCRIT',(req,res,next)=>{
 	let sobre = req.body.sobre;
 	let valor = req.body.valor;
 	let missao = req.body.missao;
@@ -156,35 +202,52 @@ rota.post('/addEscrit',(req,res,next)=>{
 	console.log(tk);
 	console.log(email);
 	criar.criarEsc(sobre, valor, missao, visao, tel, zapzap, insta,face,lkdin,tt,tk,email)
-	res.send("Escritorio Criado, verificar console e DB")
+	res.redirect("/")
 })
 
-rota.get('/addImagem',async(req,res,next)=>{
-	let id_membros = await ler.lerMembros()
-	id_membros = JSON.stringify(id_membros);
-	id_membros = JSON.parse(id_membros)
-	
-	let id_serv = await ler.lerServ()
-	id_serv = JSON.stringify(id_serv)
-	id_serv = JSON.parse(id_serv)
-	res.render('add_Imagem',{'ID_MEMB':id_membros,'ID_SERV':id_serv})
+rota.post('/addSERV',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+	let servico = req.body.servico;
+	let introducao = req.body.intro;
+	let descricao = req.body.descricao;
+	let id = req.body.ID;
+	let subnm = req.body.SUBNOME;
+	console.log("servico: ")
+	console.log(servico)
+	console.log("\nintroducao: ")
+	console.log(introducao)
+	console.log("\nDescricao: ")
+	console.log(descricao)
+
+	let img_nm = id+"_"+subnm;
+	let natur = "servico";
+	let nome_comp = req.file.originalname;
+	let nome = nome_comp.split('.');
+	let extens = nome[nome.length-1]
+
+	criar.criarServ(id,servico, introducao, descricao)
+	criar.criarImg(img_nm,natur,extens,true,id)
+	res.redirect("/")
 })
 
-rota.post('/addImagem',uploadImagem.single('imagem_file'), (req,res,next)=>{
-	//QUANDO ENTRANDO COM OS DADOS PELO FORMS
-	//É NECESSÁRIO QUE OS ARQUIVOS SEJAM COLOCADOS APÓS TODOS OS TEXTOS
-	//NO HTML
-	let nm = req.body.image_name;
-	let nat = req.body.nat_imagem;
-	let ref = req.body.id_memb_ref;
+rota.post('/addIMG',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+	let nm = req.body.nome;
+	let id = req.body.ID;
+	let subnm = req.body.SUBNOME;
 
 	let nome_comp = req.file.originalname;
 	let nome = nome_comp.split('.');
 	let extens = nome[nome.length-1]
 	
-	criar.criarImg(nm,nat,extens,ref)
-	res.send("Check o console")
-})
+	let nat
+
+	if((nm == "missao") || (nm == "visao") || (nm == "valor")){
+		nat = "sobre"
+	} else{
+		nat = "icone"
+	}
+	criar.criarImg(id+"_"+subnm,nat,extens,true,id)
+	res.redirect("/")
+});
 
 //ROTAS DE LEITURAS
 rota.get('/RUDMember', async (req,res,next)=>{

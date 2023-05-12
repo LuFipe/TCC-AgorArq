@@ -1,73 +1,167 @@
 extend layout_adm
 block FORMS
-	for i in ['PROJETOS','ARTIGOS','VIDEOS','MEMBROS']
+	for i in ['PROJETOS','ARTIGOS','LINKS','MEMBROS']
 		section
-			form(action="", method="post", enctype="multipart/form-data",style="margin:.5em; padding:1em;height:35em; width:auto; border-radius: 1em; display:grid; grid-template-columns:repeat(10, 10%);grid-template-rows: repeat(10,5%) 50%; ;background-color:rgba(1,1,1,.6)")
+			form(id="form"+i+"_CLASS",action="/adm/add"+i, method="post", enctype="multipart/form-data",style="margin:.5em; padding:1em;height:35em; width:auto; border-radius: 1em; display:grid; grid-template-columns:repeat(10, 10%);grid-template-rows: repeat(10,5%) 50%; ;background-color:rgba(1,1,1,.6)")
 				img(src="", alt="",style="grid-column:1/3;grid-row:1/9;background-color: white")
 				if i == 'PROJETOS'
 					div(style="grid-column:4/7;grid-row:1/4;")
-						p(style="margin:0") ESCRITORIO
-						input(type="text")
+						label(for="ESCRITORIO", style="margin:0") ESCRITÓRIO:
+						br
+						input(type="text", name="ESCRITORIO")
 					div(style="grid-column:4/7;grid-row:4/7;")
-						p(style="margin:0") METRAGEM
-						input(type="text", name="")
+						label(for="METRAGEM",style="margin:0") METRAGEM:
+						br
+						input(type="text", name="METRAGEM")
 				if i == 'ARTIGOS'
 					div(style="grid-column:4/7;grid-row:1/4;")
-						p(style="margin:0") TIPO
-						select(name="")
+						label(for="TIPO_ARTIGO", style="margin:0") TIPO:
+						br
+						select(name="TIPO_ARTIGO")
 							option(value="blog") BLOG
 							option(value="artigo") ARTIGO
 					div(style="grid-column:4/7;grid-row:4/7;")
-						p(style="margin:0") assunto
-						input(type="text", name="")
-				if i == 'VIDEOS'
+						label(for="ASSUNTO",style="margin:0") ASSUNTO:
+						br
+						input(type="text", name="ASSUNTO")
+				if i == 'LINKS'
 					div(style="grid-column:4/7;grid-row:1/4;")
-						p(style="margin:0") SITE
-						select(name="")
+						label(for="SITE", style="margin:0") SITE:
+						br
+						select(name="SITE")
 							option(value="youtube") YOUTUBE
 							option(value="sketchfab") SKETCHFAB
 							option(value="prezi") PREZI
 					div(style="grid-column:4/7;grid-row:4/7;")
-						p(style="margin:0") LINK
-						input(type="text", name="")
+						label(for="LINK",style="margin:0") LINK:
+						br
+						input(type="text", name="LINK")
 				if i == 'MEMBROS'
 					div(style="grid-column:4/7;grid-row:1/4;")
-						p(style="margin:0") CARGO
-						input(type="text")
+						label(for="CARGO",style="margin:0") CARGO:
+						br
+						input(type="text", name="CARGO")
 					div(style="grid-column:4/7;grid-row:4/7;")
-						p(style="margin:0") FORMAÇÃO
-						input(type="text", name="")
+						label(for="FORMACAO", style="margin:0") FORMAÇÃO:
+						br
+						input(type="text", name="FORMACAO")
 				div(style="grid-column:8/11;grid-row:4/7;")
-					p(style="margin:0") TITULO
-					input(type="text", name="")
+					label(for="TITULO",style="margin:0") TITULO:
+					br
+					input(type="text", name="TITULO")
 				div(style="grid-column:1/5;grid-row:10/12;")
-					p(style="margin:0") INTRODUÇÃO
-					textarea(name="", cols="52", rows="17")
+					label(for="INTRODUCAO",style="margin:0") INTRODUÇÃO:
+					br
+					textarea(cols="52", rows="17", name="INTRODUCAO")
 				div(style="grid-column:5/11;grid-row:10/12;")
-					p(style="margin:0") DESCRIÇÃO
-					textarea(name="", cols="80", rows="17") 
-				div(style="grid-column:4/7;grid-row:7/10;")
-					p(style="margin:0") THUMBNAIL
-					input(type="file", name="")
+					label(for="DESCRICAO",style="margin:0") DESCRIÇÃO:
+					br
+					textarea(cols="80", rows="17", name="DESCRICAO") 
 				div(style="grid-column:8/9;grid-row:7/10;")
-					p(style="margin:0") ID
-					input(type="text", name="")
+					label(for="ID",style="margin:0") ID:
+					input(type="text", name="ID")
+					input(type="text", name="SUBNOME", value="0", style="display:none")
+					if i == 'ARTIGOS'
+						label(for="ASSUNTO",style="margin:0") ID AUTOR:
+						br
+						input(type="text", name="ID_AUTOR")
+				div(style="grid-column:4/7;grid-row:7/10;")
+					label(for="THUMBNAIL",style="margin:0") THUMBNAIL:
+					br
+					input(type="file", name="THUMBNAIL")
 				input(type="submit", value="CADASTRAR", style="grid-column:8/11; grid-row:1/4")
 		section
 			div(style="display: grid; grid-template-columns:13% 20% 16.5% 16.5% 34%; grid-template-rows:15% 35% 15% 35%;")
-
+	section 
+		form(id="formESCRIT_CLASS",action="/adm/addESCRIT", method="post",style="margin:.5em; padding:1em;height:35em; width:auto; border-radius: 1em; display:grid; grid-template-columns:repeat(10, 10%);grid-template-rows: repeat(20,5%); ;background-color:rgba(1,1,1,.6)")
+			div(style="grid-column:1/4;grid-row:1/10;")
+				label(for="sobre", style="margin:0") SOBRE
+				br
+				textarea(id="Sobre-Escritorio_ID",name="sobre", cols="39", rows="14")
+			div(style="grid-column:4/8;grid-row:1/10;")
+				label(for="valor", style="margin:0") VALOR
+				br
+				textarea(id="Valor-Escritorio_ID",name="valor", cols="39", rows="14") 
+			div(style="grid-column:1/4;grid-row:10/19;")
+				label(for="missao", style="margin:0") MISSÃO
+				br
+				textarea(id="Missao-Escritorio_ID",name="missao", cols="39", rows="14") 
+			div(style="grid-column:4/8;grid-row:10/19;")
+				label(for="visao", style="margin:0") VISÃO
+				br
+				textarea(id="Visao-Escritorio_ID",name="visao", cols="39", rows="14") 
+			div(style="grid-column:8/11;grid-row:1/3;")
+				label(for="Telefone-Escritorio_ID") TELEFONE
+				br
+				input(type="text", id="Telefone-Escritorio_ID", name="telefone") 
+			div(style="grid-column:8/11;grid-row:3/5;")
+				label(for="WhatsApp-Escritorio_ID") WHATSAPP
+				br
+				input(type="text", id="WhatsApp-Escritorio_ID", name="whatsapp") 
+			div(style="grid-column:8/11;grid-row:5/7;")
+				label(for="Instagram-Escritorio_ID") INSTAGRAM
+				br
+				input(type="text", id="Instagram-Escritorio_ID", name="instagram") 
+			div(style="grid-column:8/11;grid-row:7/9;")
+				label(for="FaceBook-Escritorio_ID") FACEBOOK
+				br
+				input(type="text", id="FaceBook-Escritorio_ID", name="facebook") 
+			div(style="grid-column:8/11;grid-row:9/11;")
+				label(for="LinkedIn-Escritorio_ID") LINKEDIN
+				br
+				input(type="text", id="LinkedIn-Escritorio_ID", name="linkedin")
+			div(style="grid-column:8/11;grid-row:11/13;")
+				label(for="Twitter-Escritorio_ID") TWITTER
+				br
+				input(type="text", id="Twitter-Escritorio_ID", name="twitter")
+			div(style="grid-column:8/11;grid-row:13/15;")
+				label(for="TikTok-Escritorio_ID") TIKTOK
+				br
+				input(type="text", id="TikTok-Escritorio_ID", name="tiktok")
+			div(style="grid-column:8/11;grid-row:15/17;")
+				label(for="Email-Escritorio_ID") EMAIL
+				br
+				input(type="text", id="Email-Escritorio_ID", name="email")
+			input(type="submit", style="grid-column:8/11;grid-row:19/21")
+	section 
+		form(id="formSERV_CLASS",action="/adm/addSERV", method="post", enctype="multipart/form-data",style="margin:.5em; padding:1em;height:20em; width:auto; border-radius: 1em; display:grid; grid-template-columns:33% 33% 34%;grid-template-rows: 15% 70% 15%; ;background-color:rgba(1,1,1,.6)")
+			div(style="grid-row:1/2;grid-column:1/2;")
+				label(for="servico") SERVIÇO
+				br
+				input(type="text", id="Servico_ID", name="servico")
+			div(style="grid-row:1/2;grid-column:2/3;")
+				label(for="ID") ID
+				br
+				input(type="text", id="id_ID", name="ID")
+				input(type="text", name="SUBNOME", value="0", style="display:none")
+			div(style="grid-column:3/4;grid-row:1/2;")
+				label(for="THUMBNAIL",style="margin:0") THUMBNAIL:
+				br
+				input(type="file", name="THUMBNAIL")
+			div(style="grid-row:2/3;grid-column:1/2;")
+				label(for="Intro-Servico_ID") INTRO
+				br
+				textarea(name="intro", id="Intro-Servico_ID", cols="30", rows="10") 
+			div(style="grid-row:2/3;grid-column:2/3;")
+				label(for="Descricao-Servico_ID") DESCRIÇÃO
+				br
+				textarea(name="descricao", id="Descricao-Servico_ID", cols="30", rows="10")
+			img(src="", alt="",style="grid-column:3/4;grid-row:2/3;background-color: white")
+			input(type="submit", value="ADICIONAR", style="grid-row:3/4;grid-column:1/4")
+	section 
+		form(id="formIMG_CLASS",action="/addIMG", method="post", enctype="multipart/form-data",style="margin:.5em; padding:1em;height:5em; width:auto; border-radius: 1em; display:grid; grid-template-columns:repeat(10, 10%);grid-template-rows: 100%; ;background-color:rgba(1,1,1,.6)")
+			div 
+				label(for="ID") ID 
+				br
+				input(type="text", name="ID")
+				input(type="text", name="SUBNOME", value="0", style="display:none")
+			select(name="nome")
+				option(value="missao") MISSAO
+				option(value="valor") VALOR
+				option(value="visao") VISAO
+			input(type="file", name="THUMBNAIL")
+			input(type="submit", value="GRAVAR IMAGEM")
 	div
-		section CREATE
-			div 
-				a(href="/adm/addMeta") Click Para Adicionar Metadados
-			div
-				a(href="/adm/addMember") Click Para Adicionar Membro
-			div 
-				a(href="/adm/addServ") Click Para Adicionar Serviço
-			div 
-				a(href="/adm/addEscrit") Click Para Adicionar Escritorio
-			div 
-				a(href="/adm/addImagem") Click Para Adicionar Uma Imagem
 		section RUD
 			div
 				a(href="/adm/readMeta")

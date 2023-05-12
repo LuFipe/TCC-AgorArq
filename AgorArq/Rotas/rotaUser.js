@@ -27,7 +27,7 @@ rota.get('/projetos',async(req,res,next)=>{
 })
 
 rota.get('/artigos',(req,res,next)=>{
-	res.render('artigos')
+	res.render('ARTIGO')
 })
 
 rota.post('/videoTeste',async(req,res,next)=>{

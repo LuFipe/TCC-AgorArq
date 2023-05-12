@@ -32,8 +32,7 @@ module.exports.criarProj = async (esc, met, ref, cam)=>{
 			{
 				escritorio: esc,
 				metragem: met,
-				id_ref: ref,
-				caminho: cam
+				id_ref: ref
 			}
 		)		
 	} catch(error) {console.log("\n\nOcorreu um erro na insercao dos dados no banco de dados: "+error+"\n\n");}
@@ -57,7 +56,7 @@ module.exports.criarProj_Memb = async (ident, ident_memb, ident_proj)=>{
 }
 
 //INSERÇÃO DE DADOS NA TABELA ARTIGO
-module.exports.criarArt = async (subj, subt, cam)=>{	
+module.exports.criarArt = async (ident, subj, subt, aut)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
@@ -65,9 +64,10 @@ module.exports.criarArt = async (subj, subt, cam)=>{
 	//ADICIONANDO DADOS NO DB
 		const inserir = tabela.artigos.create(
 			{
+				id: ident,
 				assunto: subj,
 				subtipo: subt,
-				caminho: cam
+				escritor_id: aut
 			}
 		)		
 	} catch(error) {console.log("\n\nOcorreu um erro na insercao dos dados no banco de dados: "+error+"\n\n");}
@@ -111,7 +111,7 @@ module.exports.criarMemb = async (ident, nm, form, cg)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA IMAGENS
-module.exports.criarImg = async (nm, nat, ext, ref)=>{	
+module.exports.criarImg = async (nm, nat, ext,tmb, ref)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 	console.log("entrou na criação da imagem")
@@ -124,6 +124,7 @@ module.exports.criarImg = async (nm, nat, ext, ref)=>{
 				nome: nm,
 				natureza: nat,
 				extensao: ext,
+				thumb: tmb,
 				id_ref: ref
 			}
 		)
@@ -133,7 +134,7 @@ module.exports.criarImg = async (nm, nat, ext, ref)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA SERVIÇOS
-module.exports.criarServ = async (sv, intro, desc)=>{	
+module.exports.criarServ = async (ident, sv, intro, desc)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
@@ -141,6 +142,7 @@ module.exports.criarServ = async (sv, intro, desc)=>{
 	//ADICIONANDO DADOS NO DB
 		const inserir = tabela.servicos.create(
 			{
+				id: ident,
 				servico: sv,
 				introducao: intro,
 				descricao: desc
