@@ -1,0 +1,37 @@
+extend layout_main
+
+block titulo
+	img(src="../icones/LOGO.svg", alt="NÂO TEM IMAGEM", style="height: 20em; margin: 3em auto auto auto")
+	h1(style="color:black; text-align:center; margin:0; font-size:3em; height: 3em") MIDIAS
+
+
+block conteudo
+	section(style="width:100%; display: flex; flex-wrap:wrap")
+		for midia in MIDIAS
+			form(action="", method="post", class="midiaCel_CLASS")
+				input(type="hidden", name="id_NAME", id="id_ID", value=midia['id'])
+				input(type="submit", class="projButton_CLASS", style="opacity:0")
+				div.imgProj_CLASS(style="background-image: url('../imagens/"+midia['nm_img']+"."+midia['ext']+"');")
+				div.metaDados_CLASS
+					p.detProj_CLASS 
+						img(src="../icones/DATA.svg", alt="n tah aqui", style="height:1.5em")
+						<strong> DATA: </strong> #{midia['data']}
+					p.detProj_CLASS 
+						img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+						<strong> SITE: </strong> #{midia['site']}
+				h3.tituloProj_CLASS=midia['nome']	
+		for i in [1,2,3,4,5,6,7,8,9,10]
+			div(class="infoCel_CLASS midiaCel_CLASS")
+				a.projButton_CLASS(href="")
+				div.imgProj_CLASS(style="background-image: url('');")
+				div.metaDados_CLASS
+					p.detProj_CLASS 
+						img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+						<strong>LOCAL:</strong> Juazeiro do Norte
+					p.detProj_CLASS
+						img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
+						<strong>ESCRITORIO:</strong> 01/01/2023
+					p.detProj_CLASS
+						img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
+						<strong>METRAGEM:</strong> 01/01/2023
+				h3.tituloProj_CLASS TITULO GRANDE E AUTO EXPLICATIVO

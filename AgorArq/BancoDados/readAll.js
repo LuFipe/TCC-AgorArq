@@ -49,7 +49,7 @@ module.exports.lerMeta = async ()=>{
 		console.log(sinc)
 		//LEITURA
 		const metadados = await tabelas.meta.findAll()
-		console.log("Leitura com sucesso:\n")
+		console.log("Leitura com sucesso dos METADADOS:\n")
 		console.log(metadados)
 		return metadados
 	} catch(error){
@@ -74,6 +74,60 @@ module.exports.lerMetaOnde = async(ident)=>{
 		console.log("Deu erro em localizar a meta do tipo: "+err)
 	}
 }
+
+module.exports.lerMetaNat = async(tp)=>{
+	try{
+		const sinc = await db.sync();
+		console.log("Sincronizado")
+		console.log(sinc)
+
+		const meta = await tabelas.meta.findAll({
+			where:{
+				'tipo':tp
+			}
+		})
+		return meta;
+	}catch(err){
+		console.log(err)
+	}
+}
+
+module.exports.lerThumb = async(idref)=>{
+	try{
+		const sinc = await db.sync();
+		console.log("Sincronização completa:\n")
+		console.log(sinc)
+
+		let thumb = await tabelas.imagens.findAll({
+			where:{
+				'id_ref':idref,
+				'thumb':true
+			}
+		})
+		return thumb;
+	}catch(error){
+		console.log("Deu erro em localizar a meta do tipo: "+error)
+	}
+}
+
+module.exports.lerProjID = async(id)=>{
+	try{
+		const sinc = await db.sync()
+		console.log("Sincornizado:\n")
+		console.log(sinc)
+
+		let proj = await tabelas.projetos.findAll({
+			where:{
+				'id_ref':id
+			}
+		})
+
+		return proj;
+	}catch(error){
+		console.log("Deu ruim:"+error)
+	}
+}
+
 
 module.exports.lerProjetos = async ()=>{
 	try{
@@ -123,6 +177,23 @@ module.exports.lerArt = async ()=>{
 	}
 };
 
+module.exports.lerArtID = async (idref)=>{
+	try{
+		const sinc = await db.sync()
+		console.log('Sincronizado')
+		console.log(sinc)
+
+		const art = await tabelas.artigos.findAll({
+			where:{
+				'id_ref':idref
+			}
+		})
+		return art
+	}catch(err){
+
+	}
+}
+
 module.exports.lerLink = async ()=>{
 	try{
 		//SINCRONIZAR COM O BANCO DE DADOS
@@ -138,6 +209,23 @@ module.exports.lerLink = async ()=>{
 		console.log("Error na leitura dos links: "+error)
 	}
 };
+
+module.exports.lerLinkID = async (idref)=>{
+	try{
+		const sinc = await db.sync()
+		console.log('Sincronizado')
+		console.log(sinc)
+
+		const lnk = await tabelas.links.findAll({
+			where:{
+				'id_ref':idref
+			}
+		})
+		return lnk
+	}catch(err){
+
+	}
+}
 
 module.exports.lerLinkOnde = async(ident)=>{
 	try{
@@ -245,3 +333,25 @@ module.exports.lerEsc = async ()=>{
 		console.log("Error na leitura dos escritorios: "+error)
 	}
 };
+
+module.exports.lerEscProp = async()=>{
+	try{
+		//SINCRONIZAR COM O BANCO DE DADOS
+		const sinc = await db.sync();
+		console.log("Sincronização completa:\n")
+		console.log(sinc)
+		//LEITURA
+		const dados = await tabelas.escritorio.findAll(
+			{
+				where:{
+					'proprio':true
+				}
+			}
+		)
+		console.log("Leitura com sucesso:\n")
+		console.log(dados)
+		return dados
+	} catch(error){
+		console.log("Error na leitura do Escritorio: "+error)
+	}
+}

@@ -7,14 +7,33 @@ block titulo
 
 block conteudo
 	section(style="width:100%; display: flex; flex-wrap:wrap")
-		for celulas in CELULA
-			form(action="/videoTeste", method="post", class="projCel_CLASS")
-				input(type="hidden", name="id_NAME", id="id_ID", value=celulas['id'])
-				input(type="submit", class="projButton_CLASS", style="opacity:0")
-				div.imgProj_CLASS
+		if CELULA != []
+			for celulas in CELULA
+				form(action="", method="post", class="projCel_CLASS")
+					input(type="hidden", name="id_NAME", id="id_ID", value=celulas['id'])
+					input(type="submit", class="projButton_CLASS", style="opacity:0")
+					div.imgProj_CLASS(style="background-image: url('../imagens/"+celulas['nm_img']+"."+celulas['ext']+"');")
+					div.metaDados_CLASS
+						p.detProj_CLASS 
+							img(src="../icones/DATA.svg", alt="n tah aqui", style="height:1.5em")
+							<strong> DATA: </strong> #{celulas['data_proj']}
+						p.detProj_CLASS 
+							img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+							<strong> LOCAL: </strong> #{celulas['local']}
+						p.detProj_CLASS
+							img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
+							<strong> ESCRITORIO: </strong> #{celulas['escritorio']}
+						p.detProj_CLASS
+							img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
+							<strong> METRAGEM: </strong> #{celulas['metragem']}
+					h3.tituloProj_CLASS=celulas['nome']	
+		for i in [1,2,3,4,5,6,7,8,9,10]
+			div(class="infoCel_CLASS projCel_CLASS")
+				a.projButton_CLASS(href="")
+				div.imgProj_CLASS(style="background-image: url('');")
 				div.metaDados_CLASS
 					p.detProj_CLASS 
-						img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
+						img(src="", alt="n tah aqui", style="height:1.5em")
 						<strong>LOCAL:</strong> Juazeiro do Norte
 					p.detProj_CLASS
 						img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
@@ -22,85 +41,4 @@ block conteudo
 					p.detProj_CLASS
 						img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
 						<strong>METRAGEM:</strong> 01/01/2023
-				h3.tituloProj_CLASS=celulas['nome']
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/cultural")
-			div.imgProj_CLASS(style="background-image: url('/projetos/00002/thumbnail.png');")
-			div.metaDados_CLASS
-				p.detProj_CLASS 
-					img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
-					<strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS
-					img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
-					<strong>ESCRITORIO:</strong> 01/01/2023
-				p.detProj_CLASS
-					img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
-					<strong>METRAGEM:</strong> 01/01/2023
-			h3.tituloProj_CLASS CENTRO CUTURAL PARA O BAIRRO PLANALTO
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/edificil")
-			div.imgProj_CLASS(style="background-image: url('/projetos/00003/thumbnail.png');")
-			div.metaDados_CLASS
-				p.detProj_CLASS 
-					img(src="../icones/LOCAL.svg", alt="n tah aqui", style="height:1.5em")
-					<strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS
-					img(src="../icones/ESCRITORIO.svg", alt="n tah aqui", style="height:1.5em")
-					<strong>ESCRITORIO:</strong> 01/01/2023
-				p.detProj_CLASS
-					img(src="../icones/METRAGEM.svg", alt="n tah aqui", style="height:1.5em")
-					<strong>METRAGEM:</strong> 01/01/2023
-			h3.tituloProj_CLASS VILA VIEIRA
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/hospital")
-			div.imgProj_CLASS(style="background-image: url('/projetos/00004/thumbnail.jpg');")
-			p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
-			h3.tituloProj_CLASS PROJETO HOSPITALAR
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/loteamento")
-			div.imgProj_CLASS(style="background-image: url('/projetos/00005/thumbnail.png');")
-			p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
-			h3.tituloProj_CLASS LOTEAMENTO
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/estudo_paisagismo")
-			div.imgProj_CLASS(style="background-image: url('/projetos/00006/thumbnail.jpg');")
-			p.detProj_CLASS <strong>LOCAL:</strong> Juazeiro do Norte
-				p.detProj_CLASS <strong>DATA:</strong> 01/01/2023
-			h3.tituloProj_CLASS PAISAGISMO HOSPITALAR
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/diag_praca")
-			div.imgProj_CLASS(style="background-image: url();")
-				img.imgCel_CLASS(src="/HTML/00012/thumbnail.png", alt="")
-			p.tituloProj_CLASS DIAGNOSTICO DA PRAÇA
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/diag_urb")
-			div.imgProj_CLASS(style="background-image: url();")
-				img.imgCel_CLASS(src="/HTML/00013/thumbnail.png", alt="")
-			p.tituloProj_CLASS DIAGNOSTICO URBANISTA
-			p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/interiores")
-			div.imgProj_CLASS(style="background-image: url();")
-				img.imgCel_CLASS(src="/projetos/00007/thumbnail.png", alt="")
-			p.tituloProj_CLASS PROJETO DE INTERIORES
-			p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/washington")
-			div.imgProj_CLASS(style="background-image: url();")
-				img.imgCel_CLASS(src="/trabalhos/00008/thumbnail.png", alt="")
-			p.tituloProj_CLASS CARTA DA WASHINGTON
-			p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/catalogo")
-			div.imgProj_CLASS(style="background-image: url();")
-				img.imgCel_CLASS(src="/trabalhos/00009/thumbnail.png", alt="")
-			p.tituloProj_CLASS CATÁLOGO DE VEGETAÇÕES
-			p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
-		div(class="infoCel_CLASS projCel_CLASS")
-			a.projButton_CLASS(href="/estudo_paisagismo")
-			div.imgProj_CLASS(style="background-image: url();")
-				img.imgCel_CLASS(src="/trabalhos/00010/thumbnail.png", alt="")
-			p.tituloProj_CLASS PAISAGISMO
-			p.bioProj_CLASS Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat, atque asperiores temporibus aliquam sequi quasi aperiam adipisci soluta quibusdam sit officia! Dolores magnam enim tempore eaque corporis placeat voluptatem.
+				h3.tituloProj_CLASS TITULO GRANDE E AUTO EXPLICATIVO

@@ -41,6 +41,14 @@ module.exports.projetos = db.define('projetos',{
 		autoIncrement: true,
 		allowNull: false
 	},
+	data:{
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	local:{
+		type: Sequelize.STRING,
+		allowNull: false
+	},
 	escritorio:{
 		type: Sequelize.STRING,
 		allowNull: false
@@ -80,8 +88,9 @@ module.exports.proj_memb = db.define('proj_memb',{
 //DEFINIÇÃO DA TABELA ARTIGO
 module.exports.artigos = db.define('artigo',{
 	id:{
-		type: Sequelize.STRING,
+		type: Sequelize.INTEGER,
 		primaryKey: true,
+		autoIncrement: true,
 		allowNull: false
 	},
 	escritor_id:{
@@ -96,9 +105,9 @@ module.exports.artigos = db.define('artigo',{
 		type: Sequelize.STRING,
 		allowNull: false
 	},
-	caminho:{
+	id_ref:{
 		type: Sequelize.STRING,
-		allowNull: false
+		allowNull:false
 	}
 },
 {freezeTableName: true}
@@ -112,20 +121,24 @@ module.exports.links = db.define('links',{
 		autoIncrement: true,
 		allowNull: false
 	},
+	site:{
+		type: Sequelize.STRING,
+		allowNull: false
+	},
 	youtube:{
-		type: Sequelize.TEXT,
+		type: Sequelize.STRING,
 		allowNull: true
 	},
 	sketchfab:{
-		type: Sequelize.TEXT,
+		type: Sequelize.STRING,
 		allowNull: true
 	},
 	prezi:{
-		type: Sequelize.TEXT,
+		type: Sequelize.STRING,
 		allowNull: true
 	},
 	arquivo:{
-		type: Sequelize.TEXT,
+		type: Sequelize.STRING,
 		allowNull: true
 	},
 	id_ref:{
@@ -217,9 +230,8 @@ module.exports.servicos = db.define('servicos',{
 //DEFINIÇÃO DA TABELA ESCRITÓRIO
 module.exports.escritorio = db.define('escritorio',{
 		id:{
-			type: Sequelize.INTEGER,
+			type: Sequelize.STRING,
 			primaryKey: true,
-			autoIncrement: true,
 			allowNull: false
 		},
 		sobre:{
@@ -238,7 +250,7 @@ module.exports.escritorio = db.define('escritorio',{
 			type: Sequelize.STRING,
 			allowNull: true
 		},
-		telefone:{
+		nome:{
 			type: Sequelize.STRING,
 			allowNull: false
 		},
@@ -269,6 +281,14 @@ module.exports.escritorio = db.define('escritorio',{
 		email:{
 			type: Sequelize.TEXT,
 			allowNull: true
+		},
+		endereco:{
+			type: Sequelize.STRING,
+			allowNull: true
+		},
+		proprio:{
+			type: Sequelize.BOOLEAN,
+			allowNull:false
 		}
 	},
 	{freezeTableName: true}

@@ -22,7 +22,7 @@ module.exports.criarMeta = async (ident, nm, tp, it, desc)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA PROJETOS
-module.exports.criarProj = async (esc, met, ref, cam)=>{	
+module.exports.criarProj = async (dt,lc, esc, met, ref)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
@@ -30,6 +30,8 @@ module.exports.criarProj = async (esc, met, ref, cam)=>{
 	//ADICIONANDO DADOS NO DB
 		const inserir = tabela.projetos.create(
 			{
+				data:dt,
+				local:lc,
 				escritorio: esc,
 				metragem: met,
 				id_ref: ref
@@ -64,7 +66,7 @@ module.exports.criarArt = async (ident, subj, subt, aut)=>{
 	//ADICIONANDO DADOS NO DB
 		const inserir = tabela.artigos.create(
 			{
-				id: ident,
+				id_ref: ident,
 				assunto: subj,
 				subtipo: subt,
 				escritor_id: aut
@@ -74,21 +76,39 @@ module.exports.criarArt = async (ident, subj, subt, aut)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA LINKS
-module.exports.criarLink = async (yt, skf, pz, arq, idr)=>{	
+module.exports.criarLink = async (st,link, idr)=>{	
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
 		console.log(sinc);
 	//ADICIONANDO DADOS NO DB
-		const inserir = tabela.links.create(
-			{
-				youtube: yt,
-				sketchfab: skf,
-				prezi: pz,
-				arquivo: arq,
-				id_ref: idr
-			}
-		)		
+		if(st == "youtube"){
+			const inserir = tabela.links.create(
+				{
+					youtube: link,
+					site:st,
+					id_ref: idr
+				}
+			)
+		};
+		if(st == "sketchfab"){
+			const inserir = tabela.links.create(
+				{
+					sketchfab: link,
+					site:st,
+					id_ref: idr
+				}
+			)
+		};
+		if(st == "prezi"){
+			const inserir = tabela.links.create(
+				{
+					prezi: link,
+					site:st,
+					id_ref: idr
+				}
+			)
+		};	
 	} catch(error) {console.log("\n\nOcorreu um erro na insercao dos dados no banco de dados: "+error+"\n\n");}
 };
 
@@ -152,7 +172,7 @@ module.exports.criarServ = async (ident, sv, intro, desc)=>{
 };
 
 //INSERÇÃO DE DADOS NA TABELA ESCRITÓRIO
-module.exports.criarEsc = async (sb, vl, mis, vis, tel, wp, insta, fb, lkdin, tt, tk, mail )=>{
+module.exports.criarEsc = async (ident, sb, vl, mis, vis, nm, wp, insta, fb, lkdin, tt, tk, mail, end, prop )=>{
 	try{
 	//ETPA DE SINCRONIZAÇÃO COM O DB
 		const sinc = await db.sync();
@@ -160,11 +180,12 @@ module.exports.criarEsc = async (sb, vl, mis, vis, tel, wp, insta, fb, lkdin, tt
 	//ADICIONANDO DADOS NO DB
 		const inserir = tabela.escritorio.create(
 			{
+				id:ident,
 				sobre: sb,
 				valor: vl,
 				missao: mis,
 				visao: vis,
-				telefone: tel,
+				nome: nm,
 				whatsapp: wp,
 				instagram: insta,
 				facebook: fb,
@@ -172,6 +193,8 @@ module.exports.criarEsc = async (sb, vl, mis, vis, tel, wp, insta, fb, lkdin, tt
 				twitter: tt,
 				tiktok: tk,
 				email: mail,
+				endereco:end,
+				proprio:prop
 			}
 		)		
 	} catch(error) {console.log("\n\nOcorreu um erro na insercao dos dados no banco de dados: "+error+"\n\n");}

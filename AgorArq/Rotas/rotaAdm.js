@@ -10,6 +10,7 @@ let img_path = path.join(__dirname,"../front/imagens")
 const rota = express.Router();
 
 //DEFINIÇÕE DO MULTER
+//STORAGES
 const storageImagem = multer.diskStorage({
 	destination: (req,file, cb)=>{
 		cb(null, path.join(__dirname,"../front/imagens"))
@@ -22,13 +23,24 @@ const storageImagem = multer.diskStorage({
 		cb(null,nm+"."+nome[nome.length-1])
 	}
 })
-const uploadImagem = multer({storage: storageImagem})
 
-const storgeArquivo = multer.diskStorage({
-	destination: (req,file,cb)=>{
-		cb(null, path.join(__dirname,"../front/imagens"))
-	}
+const storageIcone = multer.diskStorage({
+	destination:(req,file,cb)=>{
+		cb(null,path.join(__dirname,"../front/icones"))
+	},
+	filename:(req,file,cb)=>{
+		let nm = req.body.NOME;
+		let nome_comp = file.originalname;
+		let nome = nome_comp.split('.');
+
+		cb(null,nm+"."+nome[nome.length-1])
+	},
 })
+
+//MODULO DE UPLOAD
+const uploadImagem = multer({storage: storageImagem})
+const uploadIcone = multer({storage: storageIcone})
+
 
 //HOME PAGE
 rota.get('/',(req,res,next)=>{
@@ -87,6 +99,8 @@ rota.post('/addMeta',(req,res,next)=>{
 })
 
 rota.post('/addPROJETOS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+	let data_cria = req.body.DATA;
+	let loc = req.body.LOCAL;
 	let escri = req.body.ESCRITORIO;
 	let metra = req.body.METRAGEM;
 	let titul = req.body.TITULO;
@@ -94,7 +108,7 @@ rota.post('/addPROJETOS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	let descr = req.body.DESCRICAO;
 	let id = req.body.ID;
 	let subnm = req.body.SUBNOME;
-	let natur = "projeto";
+	let natur = req.body.NATUREZA;
 
 	let nome_comp = req.file.originalname;
 	let nome = nome_comp.split('.');
@@ -102,13 +116,13 @@ rota.post('/addPROJETOS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	
 	console
 	criar.criarMeta(id,titul, natur, intro, descr);
-	criar.criarProj(escri,metra, id)
-	criar.criarImg(id+"_"+subnm,extens,true,id)
+	criar.criarProj(data_cria,loc, escri,metra, id)
+	criar.criarImg(id+"_"+subnm,natur,extens,true,id)
 	res.redirect('/adm');
 })
 
 rota.post('/addARTIGOS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
-	let tipo  = req.body.TIPO;
+	let tipo  = req.body.TIPO_ARTIGO;
 	let assun = req.body.ASSUNTO;
 	let titul = req.body.TITULO;
 	let intro = req.body.INTRODUCAO;
@@ -116,7 +130,7 @@ rota.post('/addARTIGOS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	let id = req.body.ID;
 	let autor = req.body.ID_AUTOR;
 	let subnm = req.body.SUBNOME;
-	let natur = "artigo";
+	let natur = req.body.NATUREZA;
 
 	let img_nm = id+"_"+subnm;
 	let nome_comp = req.file.originalname;
@@ -138,7 +152,7 @@ rota.post('/addLINKS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	let descr = req.body.DESCRICAO;
 	let id = req.body.ID;
 	let subnm = req.body.SUBNOME;
-	let natur = "link";
+	let natur = req.body.NATUREZA;
 
 	let img_nm = id+"_"+subnm;
 	let nome_comp = req.file.originalname;
@@ -160,7 +174,7 @@ rota.post('/addMEMBROS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	let descr = req.body.DESCRICAO;
 	let id = req.body.ID;
 	let subnm = req.body.SUBNOME;
-	let natur = "membro";
+	let natur = req.body.NATUREZA;
 
 	let img_nm = id+"_"+subnm;
 	let nome_comp = req.file.originalname;
@@ -174,12 +188,14 @@ rota.post('/addMEMBROS',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	res.redirect('/adm');
 })
 
-rota.post('/addESCRIT',(req,res,next)=>{
+rota.post('/addESCRITparceiro',uploadImagem.single("logo"),(req,res,next)=>{
 	let sobre = req.body.sobre;
 	let valor = req.body.valor;
 	let missao = req.body.missao;
 	let visao = req.body.visao;
-	let tel = req.body.telefone;
+	let nm = req.body.nome;
+	let id = req.body.ID;
+	let subnm = req.body.SUBNOME;
 	let zapzap = req.body.whatsapp;
 	let insta = req.body.instagram;
 	let face = req.body.facebook;
@@ -187,13 +203,20 @@ rota.post('/addESCRIT',(req,res,next)=>{
 	let tt = req.body.twitter;
 	let tk = req.body.tiktok;
 	let email = req.body.email;
+	let end = req.body.endereco;
+	let prop = false;
+
+	let img_nm = id+"_"+subnm;
+	let nome_comp = req.file.originalname;
+	let nome = nome_comp.split('.');
+	let extens = nome[nome.length-1]
 
 	console.log("Mostrando Resultados:\n");
 	console.log(sobre);
 	console.log(valor);
 	console.log(missao);
 	console.log(visao);
-	console.log(tel);
+	console.log(nm);
 	console.log(zapzap);
 	console.log(insta);
 	console.log(face);
@@ -201,11 +224,46 @@ rota.post('/addESCRIT',(req,res,next)=>{
 	console.log(tt);
 	console.log(tk);
 	console.log(email);
-	criar.criarEsc(sobre, valor, missao, visao, tel, zapzap, insta,face,lkdin,tt,tk,email)
+	criar.criarImg(img_nm,"logo",extens,true,id)
+	criar.criarEsc(id,sobre, valor, missao, visao, nm, zapzap, insta,face,lkdin,tt,tk,email,end,prop)
 	res.redirect("/")
 })
 
-rota.post('/addSERV',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
+rota.post('/addESCRITproprio',uploadIcone.single("logo"),(req,res,next)=>{
+	let sobre = req.body.sobre;
+	let valor = req.body.valor;
+	let missao = req.body.missao;
+	let visao = req.body.visao;
+	let nm = req.body.nome;
+	let id = req.body.ID;
+	let zapzap = req.body.whatsapp;
+	let insta = req.body.instagram;
+	let face = req.body.facebook;
+	let lkdin = req.body.linkedin;
+	let tt = req.body.twitter;
+	let tk = req.body.tiktok;
+	let email = req.body.email;
+	let end = req.body.endereco;
+	let prop = true;
+
+	console.log("Mostrando Resultados:\n");
+	console.log(sobre);
+	console.log(valor);
+	console.log(missao);
+	console.log(visao);
+	console.log(nm);
+	console.log(zapzap);
+	console.log(insta);
+	console.log(face);
+	console.log(lkdin);
+	console.log(tt);
+	console.log(tk);
+	console.log(email);
+	criar.criarEsc(id,sobre, valor, missao, visao, nm, zapzap, insta,face,lkdin,tt,tk,email,end,prop)
+	res.redirect("/")
+})
+
+rota.post('/addSERV',uploadIcone.single('THUMBNAIL'),(req,res,next)=>{
 	let servico = req.body.servico;
 	let introducao = req.body.intro;
 	let descricao = req.body.descricao;
@@ -219,7 +277,7 @@ rota.post('/addSERV',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	console.log(descricao)
 
 	let img_nm = id+"_"+subnm;
-	let natur = "servico";
+	let natur = req.body.NATUREZA;
 	let nome_comp = req.file.originalname;
 	let nome = nome_comp.split('.');
 	let extens = nome[nome.length-1]
@@ -229,23 +287,8 @@ rota.post('/addSERV',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
 	res.redirect("/")
 })
 
-rota.post('/addIMG',uploadImagem.single('THUMBNAIL'),(req,res,next)=>{
-	let nm = req.body.nome;
-	let id = req.body.ID;
-	let subnm = req.body.SUBNOME;
-
-	let nome_comp = req.file.originalname;
-	let nome = nome_comp.split('.');
-	let extens = nome[nome.length-1]
-	
-	let nat
-
-	if((nm == "missao") || (nm == "visao") || (nm == "valor")){
-		nat = "sobre"
-	} else{
-		nat = "icone"
-	}
-	criar.criarImg(id+"_"+subnm,nat,extens,true,id)
+rota.post('/addICONE',uploadIcone.single('ICONE'),(req,res,next)=>{
+	console.log("conseguimos postar")
 	res.redirect("/")
 });
 

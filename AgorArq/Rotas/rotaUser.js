@@ -7,27 +7,178 @@ const rota = express.Router();
 rota.get('/',(req,res,next)=>{
 	res.redirect('/home');
 });
-rota.get('/home',(req,res,next)=>{
-	res.render("HOME");
+rota.get('/home',async (req,res,next)=>{
+	let escritorio = await ler.lerEsc();
+	escritorio = JSON.stringify(escritorio)
+	escritorio = JSON.parse(escritorio)
+
+	console.log(escritorio);
+	console.log(escritorio[0].nome);
+
+	ig = escritorio[0].instagram
+	ig = ig.split('@')
+
+	escritorio[0].instagram = ig[1]
+	res.render("HOME",{"ESCRITORIO":escritorio[0]});
 });
-// rota.get('/projetos',(req,res,next)=>{
-// 	res.render("PA")
-// })
 
 rota.get('/projetos',async(req,res,next)=>{
-	let metadados = await ler.lerMeta();
+	//LER DADOS DO ESCRITORIO
+	let escritorio = await ler.lerEsc();
+	escritorio = JSON.stringify(escritorio)
+	escritorio = JSON.parse(escritorio)
+	
+	console.log("MOSTRANDO OS ESCRITORIOS:\n")
+	console.log(escritorio)
+
+	ig = escritorio[0].instagram
+	ig = ig.split('@')
+	
+	escritorio[0].instagram = ig[1]
+	
+	//LER METADADOS DOS PROJETOS
+	let metadados = await ler.lerMetaNat('projeto');
 	metadados = JSON.stringify(metadados);
 	metadados = JSON.parse(metadados)
 
-	//LETRAS MAIUSCULAS
+	console.log("MOSTRANDO OS METAS:\n")
+	console.log(metadados)
+
+	//AJUSTAR DADOS
 	for(let i =0; i<metadados.length;i++){
+		//LETRAS MAIUSCULAS
 		metadados[i]['nome'] = metadados[i]['nome'].toUpperCase();
+		
+		metaID = metadados[i]['id']
+		console.log("O ID do projeto")
+		console.log(metaID)
+		//LER THUMBNAIL
+		let miniatura = await ler.lerThumb(metaID)
+		miniatura = JSON.stringify(miniatura);
+		miniatura = JSON.parse(miniatura);
+		console.log("MOSTRANDO O MINIATURA:\n")
+		console.log(miniatura)	
+		
+		//LER PROJETO
+		let projeto = await ler.lerProjID(metaID)
+		projeto = JSON.stringify(projeto);
+		projeto = JSON.parse(projeto);
+		console.log("MOSTRANDO O PROJETO:\n")
+		console.log(projeto)	
+		
+		metadados[i]['nm_img'] = miniatura[0]['nome']
+		metadados[i]['ext'] = miniatura[0]['extensao']
+		metadados[i]['data_proj'] = projeto[0]['data']
+		metadados[i]['escritorio'] = projeto[0]['escritorio']
+		metadados[i]['metragem'] = projeto[0]['metragem']
+		metadados[i]['local'] = projeto[0]['local']
 	}
-	res.render("PROJETOS",{"CELULA":metadados})
+	
+	console.log(metadados)
+	res.render("PROJETOS",{"ESCRITORIO":escritorio[0],"CELULA":metadados})
 })
 
-rota.get('/artigos',(req,res,next)=>{
-	res.render('ARTIGO')
+rota.get('/artigos',async (req,res,next)=>{
+	//LER DADOS DO ESCRITORIO
+	let escritorio = await ler.lerEsc();
+	escritorio = JSON.stringify(escritorio)
+	escritorio = JSON.parse(escritorio)
+
+	console.log(escritorio);
+	console.log(escritorio[0].nome);
+
+	ig = escritorio[0].instagram
+	ig = ig.split('@')
+
+	escritorio[0].instagram = ig[1]
+
+	//LER METADADOS DOS ARTIGOS
+	let metadados = await ler.lerMetaNat('artigo');
+	metadados = JSON.stringify(metadados);
+	metadados = JSON.parse(metadados)
+
+	//AJUSTAR DADOS
+	for(let i =0; i<metadados.length;i++){
+		//LETRAS MAIUSCULAS
+		metadados[i]['nome'] = metadados[i]['nome'].toUpperCase();
+		
+		metaID = metadados[i]['id']
+		console.log("O ID do artigo")
+		console.log(metaID)
+		//LER THUMBNAIL
+		let miniatura = await ler.lerThumb(metaID)
+		miniatura = JSON.stringify(miniatura);
+		miniatura = JSON.parse(miniatura);
+		console.log("MOSTRANDO O MINIATURA:\n")
+		console.log(miniatura)	
+		
+		//LER ARTIGO
+		let artigo = await ler.lerArtID(metaID)
+		artigo = JSON.stringify(artigo);
+		artigo = JSON.parse(artigo);
+		console.log("MOSTRANDO O ARTIGO:\n")
+		console.log(artigo)	
+		
+		metadados[i]['nm_img'] = miniatura[0]['nome']
+		metadados[i]['ext'] = miniatura[0]['extensao']
+		metadados[i]['data'] = artigo[0]['createdAt']
+		metadados[i]['autor'] = artigo[0]['escritor_id']
+		metadados[i]['subtipo'] = artigo[0]['subtipo']
+	}
+	console.log(metadados)
+
+	res.render('ARTIGO',{"ESCRITORIO":escritorio[0],"ARTIGOS":metadados})
+})
+
+rota.get('/midias',async (req,res,next)=>{
+	//LER DADOS DO ESCRITORIO
+	let escritorio = await ler.lerEsc();
+	escritorio = JSON.stringify(escritorio)
+	escritorio = JSON.parse(escritorio)
+
+	console.log(escritorio);
+	console.log(escritorio[0].nome);
+
+	ig = escritorio[0].instagram
+	ig = ig.split('@')
+
+	escritorio[0].instagram = ig[1]
+
+	//LER METADADOS DOS MIDIAS
+	let metadados = await ler.lerMetaNat('link');
+	metadados = JSON.stringify(metadados);
+	metadados = JSON.parse(metadados)
+
+	//AJUSTAR DADOS
+	for(let i =0; i<metadados.length;i++){
+		//LETRAS MAIUSCULAS
+		metadados[i]['nome'] = metadados[i]['nome'].toUpperCase();
+		
+		metaID = metadados[i]['id']
+		console.log("O ID do artigo")
+		console.log(metaID)
+		//LER THUMBNAIL
+		let miniatura = await ler.lerThumb(metaID)
+		miniatura = JSON.stringify(miniatura);
+		miniatura = JSON.parse(miniatura);
+		console.log("MOSTRANDO O MINIATURA:\n")
+		console.log(miniatura)	
+		
+		//LER MIDIA
+		let midia = await ler.lerLinkID(metaID)
+		midia = JSON.stringify(midia);
+		midia = JSON.parse(midia);
+		console.log("MOSTRANDO O midia:\n")
+		console.log(midia)	
+		
+		metadados[i]['nm_img'] = miniatura[0]['nome']
+		metadados[i]['ext'] = miniatura[0]['extensao']
+		metadados[i]['data'] = midia[0]['createdAt']
+		metadados[i]['site'] = midia[0]['site']
+	}
+	console.log(metadados)
+
+	res.render('MIDIA',{"ESCRITORIO":escritorio[0],"MIDIAS":metadados})
 })
 
 rota.post('/videoTeste',async(req,res,next)=>{
@@ -53,7 +204,20 @@ rota.post('/videoTeste',async(req,res,next)=>{
 })
 
 rota.get('/servicos',async(req,res,next)=>{
-	
+	//LER DADOS DO ESCRITORIO
+	let escritorio = await ler.lerEsc();
+	escritorio = JSON.stringify(escritorio)
+	escritorio = JSON.parse(escritorio)
+
+	console.log(escritorio);
+	console.log(escritorio[0].nome);
+
+	ig = escritorio[0].instagram
+	ig = ig.split('@')
+
+	escritorio[0].instagram = ig[1]
+
+
 	//RECUPERANDO INFORMAÇÕES DE SERVIÇOS
 	lista_Servico = await ler.lerServ();
 	lista_Servico = JSON.stringify(lista_Servico);
@@ -84,7 +248,7 @@ rota.get('/servicos',async(req,res,next)=>{
 		}
 	}
 
-	res.render("SERVICOS",{'SERVICOS':lista_Servico})
+	res.render("SERVICOS",{'SERVICOS':lista_Servico,'ESCRITORIO':escritorio[0]})
 })
 
 rota.get('/sobre',async(req,res,next)=>{
@@ -104,31 +268,24 @@ rota.get('/sobre',async(req,res,next)=>{
 		lista_Escritorio[i].parVisao = pVisao;
 	}
 
-	//RECUPERANDO INFORMAÇÕES DAS IMAGENS SOBRE
-	let lista_Fotos = await ler.lerImgOnde('sobre');
-	lista_Fotos = JSON.stringify(lista_Fotos);
-	lista_Fotos = JSON.parse(lista_Fotos);
-
-	//RELACIONANDO IMAGEM A SOBRE
-	for(i=0; i<lista_Escritorio.length;i++){
-		for(j=0;j<lista_Fotos.length;j++){
-			if(lista_Fotos[j].nome=='missao'){
-				lista_Escritorio[i].fotoMissaoExt=lista_Fotos[j].extensao
-			}else if(lista_Fotos[j].nome=='visao'){
-				lista_Escritorio[i].fotoVisaoExt=lista_Fotos[j].extensao
-			}else if(lista_Fotos[j].nome=='valor'){
-				lista_Escritorio[i].fotoValorExt=lista_Fotos[j].extensao
-			}
-		}
-
-	}
-
 	console.log(lista_Escritorio);
 	
 	res.render("sobre",{'ESCRITORIO':lista_Escritorio,'SOB':''})
 })
 
 rota.get('/estudantes',async(req,res,next)=>{
+	//LER DADOS DO ESCRITORIO
+	let escritorio = await ler.lerEsc();
+	escritorio = JSON.stringify(escritorio)
+	escritorio = JSON.parse(escritorio)
+
+	console.log(escritorio);
+	console.log(escritorio[0].nome);
+
+	ig = escritorio[0].instagram
+	ig = ig.split('@')
+
+	escritorio[0].instagram = ig[1]
 
 	//RECUPERANDO INFORMAÇÕES DOS MEMBROS
 	let lista_Membros = await ler.lerMembros();
@@ -156,7 +313,7 @@ rota.get('/estudantes',async(req,res,next)=>{
 		}
 	}
 
-	res.render("estudantes",{'MEMBROS':lista_Membros})
+	res.render("estudantes",{'MEMBROS':lista_Membros,'ESCRITORIO':escritorio[0]})
 })
 
 rota.get('/tcc',(req,res)=>{

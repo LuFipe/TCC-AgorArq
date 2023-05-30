@@ -11,19 +11,19 @@ block conteudo
 	section(style="display:grid; height:100%")
 		
 		div.sobreCel_CLASS.strSobDiv_CLASS
-			img.imgSOBRE_CLASS(src="../imagens/missao"+"."+ESCRITORIO[0]['fotoMissaoExt'], alt="")
+			img.imgSOBRE_CLASS(src="/icones/MISSAO.svg", alt="SEM IMAGEM DE MISSAO")
 			h2(style="grid-row:1/2") MISSÃO
 			div(style="grid-row:2/3")
 				for parMis in ESCRITORIO[0]['parMissao']
 					p=parMis
 		div.sobreCel_CLASS.revSobDiv_CLASS
-			img.imgSOBRE_CLASS(src="../imagens/visao"+"."+ESCRITORIO[0]['fotoVisaoExt'], alt="", style="grid-column:2/3")
+			img.imgSOBRE_CLASS(src="/icones/VISAO.svg", alt="SEM IMAGEM DE VISAO", style="grid-column:2/3")
 			h2(style="grid-row:1/2; text-align:end") VISÃO
 			div(style="grid-row:2/3")
 				for parVis in ESCRITORIO[0]['parVisao']
 					p=parVis
 		div.sobreCel_CLASS.strSobDiv_CLASS
-			img.imgSOBRE_CLASS(src="../imagens/valor"+"."+ESCRITORIO[0]['fotoValorExt'], alt="")
+			img.imgSOBRE_CLASS(src="/icones/VALOR.svg", alt="SEM IMAGEM DE VALOR")
 			h2(style="grid-row:1/2") VALORES
 			div(style="grid-row:2/3")
 				for parVal in ESCRITORIO[0]['parValor']

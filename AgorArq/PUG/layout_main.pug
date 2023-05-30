@@ -12,27 +12,31 @@ html(lang="pt-br")
 		link(rel="stylesheet", href="/CSS/apresentacao.css")
 		link(rel="stylesheet", href="/CSS/servicos.css")
 		link(rel="stylesheet", href="/CSS/sobre.css")
-		title AgorArq 
+		link(rel="shortcut icon", href="../icones/LOGO.svg", type="image/x-icon")
+		title ESCRITORIO.nome 
 	body
 		header
 			section#mainMenu_ID
 				div(style="position:fixed; height:2em; width: 100vw ;background-color: rgba(255,255,255,0.8); display:flex; flex-wrap:wrap; z-index:2; color:black; align-items: center")
 					img.imgIcon_CLASS(src="../icones/LOGO.svg", alt="", style="margin-right: 5em")
 					img.imgIcon_CLASS(src="../icones/LOCAL.svg", alt="")
-					p(style="margin:.5%; margin-right:10em; padding:0; text-align:left; text-indent:0; font-size:.8em") RUA TAL BAIRRO TAL NUMERO TAL
+					p(style="margin:.5%; margin-right:10em; padding:0; text-align:left; text-indent:0; font-size:.8em")=ESCRITORIO.endereco
 					div(style="height:100%;width: auto; display:flex; flex-wrap:wrap;align-items:center")
-						a(href="", style="height:100%;align-items: center")
+						a(href="https://www.facebook.com/"+ESCRITORIO.facebook+"/", style="height:100%;align-items: center")
 							img.imgIcon_CLASS(src="../icones/FACEBOOK.svg", alt="Num foi")
-						a(href="", style="height:100%;align-items: center")
+						a(href="https://www.instagram.com/"+ESCRITORIO.instagram+"/", style="height:100%;align-items: center")
 							img.imgIcon_CLASS(src="../icones/INSTAGRAM.svg", alt="")
-						a(href="", style="height:100%;align-items: center")
+						a(href="https://www.instagram.com/"+ESCRITORIO.twitter+"/", style="height:100%;align-items: center")
 							img.imgIcon_CLASS(src="../icones/TWITTER.svg", alt="")
+						a(href="https://www.tiktok.com/@"+ESCRITORIO.tiktok+"", style="height:100%;align-items: center")
+							img.imgIcon_CLASS(src="../icones/TIKTOK.svg", alt="")
 						img.imgIcon_CLASS(src="../icones/WHATSAPP.svg", alt="", style="color: white")
-						p(style="padding:0; text-align:left; text-indent:0; ") #{'(00) 90000-00'}
+						p(style="padding:0; text-align:left; text-indent:0; ")=ESCRITORIO.whatsapp
 					div(style="height:100% ; display:flex; flex-wrap:wrap; margin:auto; width:30em")
 						a(href="/home", style="margin:auto") CONTEUDO
-						a(href="/projetos", style="margin:auto") PROJETO
+						a(href="/projetos", style="margin:auto") PROJETOS
 						a(href="/artigos", style="margin:auto") ARTIGOS
+						a(href="/midias", style="margin:auto") MÍDIAS 
 						a(href="/servicos", style="margin:auto") SERVIÇOS
 						a(href="/estudantes", style="margin:auto") EQUIPE
 						a(href="/sobre", style="margin:auto") SOBRE

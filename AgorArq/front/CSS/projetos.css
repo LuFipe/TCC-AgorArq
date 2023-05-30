@@ -30,6 +30,14 @@
 	*/display: block;
 }
 
+.midiaCel_CLASS{
+	width: 17em;
+	height: 17em;
+	margin: 1em;
+	/*background-color: rgb(255, 255, 33);
+	*/display: block;
+}
+
 .imgProj_CLASS{
 	background-size: cover;
 	background-repeat: no-repeat;
